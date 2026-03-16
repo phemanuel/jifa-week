@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container py-5">
+     @if(session('info'))
+    <div class="alert alert-info">
+        {{ session('info') }}
+    </div>
+@endif
     <div class="row justify-content-center">
         <div class="col-lg-10">
 

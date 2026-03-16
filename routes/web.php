@@ -33,3 +33,9 @@ Route::post('/designer-payment-verify',[DesignerController::class,'verifyPayment
 Route::get('/designer/{designer}/payment', [DesignerController::class, 'payment'])
 ->name('designer-payment');
 
+Route::get('/designer/payment/success/{designer}', [DesignerController::class, 'success'])
+->name('designer.success');
+
+Route::get('/designer/payment/failure/{designer}', [DesignerController::class, 'failure'])
+->name('designer.failure');
+

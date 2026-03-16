@@ -315,6 +315,457 @@
     color: #111;
 }
 </style>
+<style>
+   /* TECH BACKGROUND */
+
+.tech-section{
+background: url('images/circuit-bg2.png') center/cover no-repeat;
+position: relative;
+color:#fff;
+}
+
+.tech-section .container{
+position:relative;
+z-index:2;
+}
+
+/* circuit overlay */
+
+.tech-section::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('images/circuit-bg2.png');
+opacity:0.07;
+pointer-events:none;
+}
+
+/* tech card */
+
+.tech-card{
+background:rgba(0,0,0,0.55);
+border:1px solid rgba(0,150,255,0.35);
+border-radius:10px;
+backdrop-filter:blur(6px);
+color:#e2e8f0;
+}
+
+/* section title */
+
+.section-title{
+color:#3bb4ff;
+font-weight:700;
+letter-spacing:1px;
+}
+
+/* headings */
+
+.tech-heading{
+color:#22c55e;
+font-weight:600;
+}
+
+/* checklist */
+
+.tech-list{
+color:#cbd5f5;
+}
+
+.tech-list i{
+color:#38bdf8;
+margin-right:10px;
+}
+
+/* SDG cards */
+
+.sdg-tech-card{
+background:rgba(0,0,0,0.45);
+border:1px solid rgba(59,180,255,0.35);
+border-radius:10px;
+padding:18px;
+transition:0.3s;
+}
+
+.sdg-tech-card i{
+color:#3bb4ff;
+font-size:24px;
+}
+
+.sdg-tech-card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 18px rgba(59,180,255,0.7);
+}
+</style>
+<style>
+    /* TEAM TECH CARD */
+
+.team-tech-card{
+background: rgba(0,0,0,0.55);
+border:1px solid rgba(0,150,255,0.35);
+border-radius:12px;
+overflow:hidden;
+transition:0.4s;
+backdrop-filter:blur(6px);
+}
+
+.team-tech-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(0,150,255,0.6);
+}
+
+
+/* TEAM IMAGE */
+
+.team-img{
+position:relative;
+overflow:hidden;
+}
+
+.team-img img{
+transition:0.4s;
+}
+
+.team-tech-card:hover img{
+transform:scale(1.08);
+}
+
+
+/* SOCIAL ICONS */
+
+.team-social{
+position:absolute;
+bottom:15px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+opacity:0;
+transition:0.4s;
+}
+
+.team-tech-card:hover .team-social{
+opacity:1;
+}
+
+.team-social a{
+width:35px;
+height:35px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#0096ff;
+color:white;
+border-radius:50%;
+font-size:14px;
+transition:0.3s;
+}
+
+.team-social a:hover{
+background:#00c3ff;
+box-shadow:0 0 12px #00c3ff;
+}
+
+
+/* TEAM CONTENT */
+
+.team-content{
+padding:20px;
+text-align:center;
+color:#e2e8f0;
+}
+
+.team-content h4{
+color:#3bb4ff;
+font-weight:600;
+}
+
+.team-content small{
+color:#94a3b8;
+display:block;
+margin-bottom:6px;
+}
+
+.team-content p{
+font-size:14px;
+color:#cbd5f5;
+}
+</style>
+<style>
+  /* Footer Background */
+.footer {
+    background: #0a0a0a url('images/circuit-bg2.png') repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Footer Card */
+.footer-card {
+    background: rgba(10, 10, 10, 0.85); /* Semi-transparent dark card */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+}
+
+/* Neon Text & Glow */
+.text-neon {
+    color: #00fff0;
+    text-shadow: 0 0 5px #00fff0, 0 0 10px #00fff0;
+}
+.text-glow {
+    text-shadow: 0 0 3px rgba(0, 255, 255, 0.3);
+}
+
+/* Social Icons */
+.social-icon {
+    border: 1px solid #00fff0;
+    box-shadow: 0 0 10px #00fff0;
+    transition: 0.3s;
+}
+.social-icon:hover {
+    box-shadow: 0 0 20px #ff00ff, 0 0 30px #00fff0;
+    transform: scale(1.1);
+}
+
+/* Contact Info Cards */
+.icon-square {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 10px #00fff0;
+}
+
+/* Neon Border Top */
+.border-top-neon {
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Instagram Hover */
+.footer-instagram img {
+    width: 100%;
+    transition: 0.3s;
+}
+.footer-instagram img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00fff0;
+}
+.footer-instagram i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s;
+}
+.footer-instagram:hover i {
+    opacity: 1;
+}
+</style>
+<style>
+    /* Carousel Base */
+.header-carousel-item {
+    background-color: #0a0a0a !important; /* pure almost-black */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Neon Headings */
+.neon-text {
+    color: #00fff0;
+    text-shadow: 0 0 5px #00fff0, 0 0 10px #00fff0;
+}
+
+/* Glowing Paragraphs */
+.glow-text {
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+/* Neon Buttons */
+.neon-btn {
+    border: 1px solid #00fff0;
+    box-shadow: 0 0 10px #00fff0;
+    transition: 0.3s;
+}
+.neon-btn:hover {
+    box-shadow: 0 0 20px #ff00ff, 0 0 30px #00fff0;
+    transform: scale(1.05);
+}
+
+/* Circular Image with Glow */
+.carousel-img-circle {
+    border-radius: 50%;
+    padding: 5px;
+    background: rgba(0, 255, 255, 0.05);
+    box-shadow: 0 0 15px #00fff0;
+    transition: 0.3s;
+}
+.carousel-img-circle:hover {
+    box-shadow: 0 0 25px #ff00ff, 0 0 30px #00fff0;
+    transform: scale(1.05);
+}
+.carousel-caption {
+    position: relative;
+    z-index: 2; /* bring text above overlay */
+}
+/* Subtitle – Neon Green */
+.carousel-subtitle {
+    font-family: 'Poppins', sans-serif;
+    color: #33ff33; /* bright neon green */
+    text-shadow: 0 0 1px #33ff33, 0 0 3px #33ff33;
+}
+
+/* Title – Electric Blue */
+.carousel-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #3399ff; /* neon blue */
+    text-shadow: 0 0 2px #3399ff, 0 0 4px #3399ff;
+}
+
+/* Optional: Animated Circuit Lines Overlay */
+/* Optional: subtle dark overlay to make text readable */
+.header-carousel-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('images/circuit-bg2.png') repeat;
+    z-index: 1;
+}
+@keyframes moveCircuit {
+    0% {background-position: 0 0;}
+    100% {background-position: 200px 200px;}
+}
+</style>
+<style>
+    /* Topbar Background */
+.topbar {
+    background-color: #0a0a0a; /* pure dark */
+    position: relative;
+    z-index: 1000;
+    font-size: 0.875rem;
+}
+
+/* Links in topbar */
+.topbar-link {
+    color: #00ffff; /* neon cyan */
+    text-decoration: none;
+    transition: 0.3s;
+    text-shadow: 0 0 3px #00ffff, 0 0 6px #00ffff;
+}
+
+.topbar-link:hover {
+    color: #ff33cc; /* neon pink on hover */
+    text-shadow: 0 0 5px #ff33cc, 0 0 10px #ff33cc;
+}
+
+/* Social Icons Neon Glow */
+.neon-icon {
+    color: #00ffff;
+    transition: 0.3s;
+    text-shadow: 0 0 1px #00ffff, 0 0 3px #00ffff;
+}
+.neon-icon:hover {
+    color: #ff33cc;
+    text-shadow: 0 0 2px #ff33cc, 0 0 4px #ff33cc;
+    transform: scale(1.1);
+}
+
+/* Optional: subtle circuit overlay on topbar */
+.topbar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* background: url('img/circuit-pattern.svg') repeat; */
+    opacity: 0.05; /* very subtle */
+    pointer-events: none;
+}
+</style>
+<style>
+/* Navbar background */
+.navbar-collapse.bg-dark {
+    background-color: #0a0a0a !important; /* pure dark for maximum contrast */
+}
+
+/* Links */
+.nav-tech .nav-link {
+    font-family: 'Orbitron', sans-serif; /* futuristic font */
+    color: #00ffff; /* neon cyan default */
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-tech .nav-link:hover,
+.nav-tech .nav-link.active {
+    color: #ff33cc; /* neon pink hover/active */
+    text-shadow: 0 0 3px #ff33cc, 0 0 6px #ff33cc;
+}
+
+/* Dropdown menu */
+.nav-tech .dropdown-menu {
+    background-color: #0a0a0a; /* match navbar */
+    border: 1px solid #00ffff;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+}
+
+.nav-tech .dropdown-item {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffff;
+    padding: 0.5rem 1.5rem;
+    transition: 0.3s;
+}
+
+.nav-tech .dropdown-item:hover {
+    color: #ff33cc;
+    text-shadow: 0 0 3px #ff33cc, 0 0 6px #ff33cc;
+    background-color: rgba(255, 51, 204, 0.1); /* subtle hover glow */
+}
+
+/* Icons spacing */
+.nav-tech .dropdown-item i,
+.nav-tech .nav-link i {
+    width: 18px;
+    text-align: center;
+}
+</style>
+<style>
+    /* Container styling */
+.contact-experts {
+    font-family: 'Orbitron', sans-serif; /* futuristic font */
+    background-color: #0a0a0a; /* dark background for contrast */
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: left;
+    width: max-content;
+}
+
+/* Label styling */
+.contact-experts .contact-label {
+    color: #00ffff; /* neon cyan */
+    font-size: 0.875rem;
+    text-shadow: 0 0 2px #00ffff, 0 0 4px #00ffff;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Phone number styling */
+.contact-experts .contact-number {
+    color: #ff33cc; /* neon pink */
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 0 0 3px #ff33cc, 0 0 6px #ff33cc;
+    transition: 0.3s;
+}
+
+.contact-experts .contact-number:hover {
+    color: #00ffff;
+    text-shadow: 0 0 4px #00ffff, 0 0 8px #00ffff;
+}
+</style>
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     </head>
@@ -325,49 +776,40 @@
        
         <!-- Spinner End -->
 
-        <!-- Topbar Start -->
-<div class="container-fluid topbar px-0 px-lg-4 bg-black py-2 d-none d-lg-block" style="background-color:#000;">
+       <!-- Topbar Start -->
+<div class="container-fluid topbar px-0 px-lg-4 py-2 d-none d-lg-block">
     <div class="container">
         <div class="row gx-0 align-items-center">
+            <!-- Left Side: Location & Email -->
             <div class="col-lg-8 text-center text-lg-start mb-lg-0">
-                <div class="d-flex flex-wrap">
+                <div class="d-flex flex-wrap topbar-info">
                     <div class="border-end border-light pe-3">
-                        <a href="#" class="text-white small">
-                            <i class="fas fa-map-marker-alt text-white me-2"></i>Find A Location
+                        <a href="#" class="topbar-link">
+                            <i class="fas fa-map-marker-alt me-2"></i>Find A Location
                         </a>
                     </div>
                     <div class="ps-3">
-                        <a href="mailto:example@gmail.com" class="text-white small">
-                            <i class="fas fa-envelope text-white me-2"></i>example@gmail.com
+                        <a href="mailto:example@gmail.com" class="topbar-link">
+                            <i class="fas fa-envelope me-2"></i>example@gmail.com
                         </a>
                     </div>
                 </div>
             </div>
 
+            <!-- Right Side: Social + Language -->
             <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-flex justify-content-end">
-                    <div class="d-flex border-end border-light pe-3">
-                        <a class="btn p-0 text-white me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn p-0 text-white me-3" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn p-0 text-white me-3" href="#"><i class="fab fa-instagram"></i></a>
-                        <a class="btn p-0 text-white me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="d-flex border-end border-light pe-3 social-icons">
+                        <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn p-0 neon-icon me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-
                     <div class="dropdown ms-3">
-                        <a href="#" class="dropdown-toggle text-white" data-bs-toggle="dropdown">
-                            <small>
-                                <i class="fas fa-globe-europe text-white me-2"></i> English
-                            </small>
+                        <a href="#" class="dropdown-toggle topbar-link" data-bs-toggle="dropdown">
+                            <small><i class="fas fa-globe-europe me-2"></i>English</small>
                         </a>
-                        <!-- <div class="dropdown-menu rounded">
-                            <a href="#" class="dropdown-item">English</a>
-                            <a href="#" class="dropdown-item">Bangla</a>
-                            <a href="#" class="dropdown-item">French</a>
-                            <a href="#" class="dropdown-item">Spanish</a>
-                            <a href="#" class="dropdown-item">Arabic</a>
-                        </div> -->
                     </div>
-
                 </div>
             </div>
         </div>
@@ -387,41 +829,28 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars"></span>
                     </button>
-                    <div class="collapse navbar-collapse bg-black" id="navbarCollapse" >
-                        <div class="navbar-nav mx-0 mx-lg-auto" style="background-color:#000;">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav mx-0 mx-lg-auto nav-tech bg-dark" >
+                            <a href="#" class="nav-item nav-link active"><i class="fas fa-home me-1"></i>Home</a>
+                            <a href="#" class="nav-item nav-link"><i class="fas fa-info-circle me-1"></i>About</a>
+
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                    <span class="dropdown-toggle">Signup</span>
+                                    <i class="fas fa-user-plus me-1"></i>Signup <span class="dropdown-toggle"></span>
                                 </a>
                                 <div class="dropdown-menu">
-                                    <a href="{{route('designer-form')}}" class="dropdown-item">Designers</a>
-                                    <a href="#" class="dropdown-item">Child Model(3-12)</a>
-                                    <a href="#" class="dropdown-item">Volunteer</a>
-                                    <a href="#" class="dropdown-item">Media/Press</a>
+                                    <a href="{{route('designer-form')}}" class="dropdown-item"><i class="fas fa-pencil-alt me-1"></i>Designers</a>
+                                    <a href="#" class="dropdown-item"><i class="fas fa-child me-1"></i>Child Model(3-12)</a>
+                                    <a href="#" class="dropdown-item"><i class="fas fa-hands-helping me-1"></i>Volunteer</a>
+                                    <a href="#" class="dropdown-item"><i class="fas fa-newspaper me-1"></i>Media/Press</a>
                                 </div>
                             </div>
-                            <!-- <a href="blog.html" class="nav-item nav-link">Blog</a> -->
-                            <!-- <div class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                    <span class="dropdown-toggle">Pages</span>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="feature.html" class="dropdown-item">Our Features</a>
-                                    <a href="team.html" class="dropdown-item">Our team</a>
-                                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                    <a href="FAQ.html" class="dropdown-item">FAQs</a>
-                                    <a href="404.html" class="dropdown-item">404 Page</a>
-                                </div>
-                            </div> -->
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                            <!-- <div class="nav-btn px-3">
-                                <button class="btn-search btn btn-primary btn-md-square rounded-circle flex-shrink-0" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                                <a href="#" class="btn btn-primary rounded-pill py-2 px-4 ms-3 flex-shrink-0"> Get a Quote</a>
-                            </div> -->
+
+                            <a href="#" class="nav-item nav-link"><i class="fas fa-images me-1"></i>Gallery</a>
+                            <a href="#" class="nav-item nav-link"><i class="fas fa-envelope me-1"></i>Contact</a>
                         </div>
                     </div>
+
                     <div class="d-none d-xl-flex flex-shrink-0 ps-4">
                         <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
                             <i class="fa fa-phone-alt fa-2x"></i>
@@ -429,9 +858,9 @@
                                 <span><i class="fa fa-comment-dots text-secondary"></i></span>
                             </div>
                         </a>
-                        <div class="d-flex flex-column ms-3">
-                            <span>Call to Our Experts</span>
-                            <a href="tel:+ 0123 456 7890"><span class="text-dark">Free: + 0123 456 7890</span></a>
+                       <div class="contact-experts d-flex flex-column ms-3">
+                        <span class="contact-label">Call to Our Experts</span>
+                        <a href="tel:+01234567890" class="contact-number">Free: +0123 456 7890</a>
                         </div>
                     </div>
                 </nav>
@@ -460,889 +889,405 @@
 
 
         <!-- Carousel Start -->
-        <div class="header-carousel owl-carousel">
-            <div class="header-carousel-item bg-dark">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-lg-7 animated fadeInLeft">
-                                <div class="text-sm-center text-md-start">
-                                    <h4 class="carousel-subtitle mb-3">✨ Welcome to Jifa Week</h4>
-									<h1 class="carousel-title mb-4">Where Creativity Meets Style</h1>
-									<p class="carousel-text mb-5">Celebrate young talents showcasing the latest trends in children’s fashion. Fun, color, and glamour all in one stage!</p>
-                                    <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                        <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
-                                    </div>
-                                </div>
+<div class="header-carousel owl-carousel">
+    <!-- Slide 1 -->
+    <div class="header-carousel-item">
+        <div class="carousel-caption">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7 animated fadeInLeft">
+                        <div class="text-sm-center text-md-start">
+                            <h4 class="carousel-subtitle mb-3">✨ Welcome to Jifa Week</h4>
+                            <h1 class="carousel-title mb-4">Where Creativity Meets Style</h1>
+                            <p class="carousel-text glow-text mb-5">
+                                Celebrate young talents showcasing the latest trends in children’s fashion. Fun, color, and glamour all in one stage!
+                            </p>
+                            <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
+                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
                             </div>
-                            <div class="col-lg-5 animated fadeInRight d-flex justify-content-center">
-							    <div class="carousel-img-circle">
-							        <img src="{{asset('home/img/jifa-week.png')}}" class="img-fluid" alt="Jifa Week">
-							    </div>
-							</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 animated fadeInRight d-flex justify-content-center">
+                        <div class="carousel-img-circle neon-circle">
+                            <img src="{{asset('home/img/jifa-week.png')}}" class="img-fluid" alt="Jifa Week">
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="header-carousel-item bg-dark">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-lg-7 animated fadeInLeft">
-                                <div class="text-sm-center text-md-start">
-                                    <h4 class="carousel-subtitle mb-3">👗 Runway Magic</h4>
-									<h1 class="carousel-title mb-4">Every Step is a Story</h1>
-									<p class="carousel-text mb-5">From the first step to the final bow, witness the magic of fashion come alive on our spectacular runway.</p>
-                                    <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                        <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 animated fadeInRight d-flex justify-content-center">
-							    <div class="carousel-img-circle">
-							        <img src="{{asset('home/img/jifa-week1.png')}}" class="img-fluid" alt="Jifa Week">
-							    </div>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="header-carousel-item bg-dark">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-lg-7 animated fadeInLeft">
-                                <div class="text-sm-center text-md-start">
-                                    <h4 class="carousel-subtitle mb-3">🌟 Celebrate Young Talent</h4>
-									<h1 class="carousel-title mb-4">Dreams in Motion</h1>
-									<p class="carousel-text mb-5">Celebrate young talents showcasing the latest trends in children’s fashion. Fun, color, and glamour all in one stage!</p>
-                                    <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                        <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 animated fadeInRight d-flex justify-content-center">
-							    <div class="carousel-img-circle">
-							        <img src="{{asset('home/img/jifa-week2.png')}}" class="img-fluid" alt="Jifa Week">
-							    </div>
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- <div class="header-carousel-item bg-dark">
-                <div class="carousel-caption">
-                    <div class="container">
-                        <div class="row gy-4 gy-lg-0 gx-0 gx-lg-5 align-items-center">
-                            <div class="col-lg-5 animated fadeInRight d-flex justify-content-center">
-							    <div class="carousel-img-circle">
-							        <img src="img/jifa-week.png" class="img-fluid" alt="Jifa Week">
-							    </div>
-							</div>
-                            <div class="col-lg-7 animated fadeInRight">
-                                <div class="text-sm-center text-md-end">
-                                    <h4 class="carousel-subtitle mb-3">✨ Welcome to Jewel Week</h4>
-									<h1 class="carousel-title mb-4">Where Creativity Meets Style</h1>
-									<p class="carousel-text mb-5">Celebrate young talents showcasing the latest trends in children’s fashion. Fun, color, and glamour all in one stage!</p>
-                                    <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
-                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                        <a class="btn btn-dark rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
         </div>
-        <!-- Carousel End -->
+    </div>
 
-        <!-- Feature Start -->
-        <!-- <div class="container-fluid feature bg-light py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">About Jifa Week</h4>
-                    <h1 class="display-4 mb-4">Insurance Provide you a Better Future</h1>
-                    <p class="mb-0">Jewel International Fashion & Art Week (JIFAWEEK) is more than a fashion event. It is a movement dedicated to awakening pride, purpose, creativity, and compassion in the next generation. We exist to raise confident, expressive, and socially conscious children who understand their worth and their power to shape the future.
-                    </p><br>
-                    <p class="mb-0">At JIFAWEEK, every child is seen as a leader in the making. Through fashion, art, culture, and performance, we nurture self-esteem, bold expression, leadership skills, and global awareness preserving our legacy while preparing children to thrive in tomorrow’s world.</p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="feature-item p-4 pt-0">
-                            <div class="feature-icon p-4 mb-4">
-                                <i class="far fa-handshake fa-3x"></i>
-                            </div>
-                            <h4 class="mb-4">Trusted Company</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit pariatur...
+    <!-- Slide 2 -->
+    <div class="header-carousel-item bg-dark">
+        <div class="carousel-caption">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7 animated fadeInLeft">
+                        <div class="text-sm-center text-md-start">
+                            <h4 class="carousel-subtitle neon-text mb-3">👗 Runway Magic</h4>
+                            <h1 class="carousel-title neon-text mb-4">Every Step is a Story</h1>
+                            <p class="carousel-text glow-text mb-5">
+                                From the first step to the final bow, witness the magic of fashion come alive on our spectacular runway.
                             </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                            <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
+                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="feature-item p-4 pt-0">
-                            <div class="feature-icon p-4 mb-4">
-                                <i class="fa fa-dollar-sign fa-3x"></i>
-                            </div>
-                            <h4 class="mb-4">Anytime Money Back</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit pariatur...
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="feature-item p-4 pt-0">
-                            <div class="feature-icon p-4 mb-4">
-                                <i class="fa fa-bullseye fa-3x"></i>
-                            </div>
-                            <h4 class="mb-4">Flexible Plans</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit pariatur...
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="feature-item p-4 pt-0">
-                            <div class="feature-icon p-4 mb-4">
-                                <i class="fa fa-headphones fa-3x"></i>
-                            </div>
-                            <h4 class="mb-4">24/7 Fast Support</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit pariatur...
-                            </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                    <div class="col-lg-5 animated fadeInRight d-flex justify-content-center">
+                        <div class="carousel-img-circle neon-circle">
+                            <img src="{{asset('home/img/jifa-week1.png')}}" class="img-fluid" alt="Jifa Week">
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-        <!-- Feature End -->
+        </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="header-carousel-item bg-dark">
+        <div class="carousel-caption">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7 animated fadeInLeft">
+                        <div class="text-sm-center text-md-start">
+                            <h4 class="carousel-subtitle neon-text mb-3">🌟 Celebrate Young Talent</h4>
+                            <h1 class="carousel-title neon-text mb-4">Dreams in Motion</h1>
+                            <p class="carousel-text glow-text mb-5">
+                                Celebrate young talents showcasing the latest trends in children’s fashion. Fun, color, and glamour all in one stage!
+                            </p>
+                            <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
+                                <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
+                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 animated fadeInRight d-flex justify-content-center">
+                        <div class="carousel-img-circle neon-circle">
+                            <img src="{{asset('home/img/jifa-week2.png')}}" class="img-fluid" alt="Jifa Week">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+        
 <br>
         <!-- About Start -->
-        <div class="container-fluid bg-light about pb-5">
-            <div class="container pb-5">
-                <div class="row g-5">
-                    <div class="col-lg-12 wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="about-item-content bg-white rounded p-5 h-100">                           
+<div class="container-fluid tech-section about pb-5">
+    <div class="container pb-5">
+        <div class="row g-5">
+            <div class="col-lg-12 wow fadeInLeft" data-wow-delay="0.2s">
 
-                            <p class="lead-text">
-                                Jewel International Fashion & Art Week (JIFAWEEK) is more than a fashion event. It is a movement dedicated to awakening pride, purpose, creativity, and compassion in the next generation. We exist to raise confident, expressive, and socially conscious children who understand their worth and their power to shape the future.
-                            </p>
+                <div class="about-item-content tech-card rounded p-5 h-100">
 
-                            <p>
-                                At JIFAWEEK, every child is seen as a leader in the making. Through fashion, art, culture, and performance, we nurture self-esteem, bold expression, leadership skills, and global awareness preserving our legacy while preparing children to thrive in tomorrow’s world.
-                            </p>
-                            <h4 class="text-primary"><strong>A Platform With Purpose</strong></h4>
+                    <h2 class="section-title mb-4">About JIFAWEEK</h2>
 
-                            <p>
-                                JIFAWEEK is proudly packaged by Woodland Approach LTD a fully registered and incorporated creative powerhouse made up of innovative professionals with expertise in:
+                    <p class="lead-text" style='color:white'>
+                        Jewel International Fashion & Art Week (JIFAWEEK) is more than a fashion event. It is a movement dedicated to awakening pride, purpose, creativity, and compassion in the next generation.
+                    </p>
 
-                            </p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Event Production</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Fashion Styling & Creative Direction</p>
-                            <p class="text-dark mb-4"><i class="fa fa-check text-primary me-3"></i>Set Design</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Media & Public Relations</p>
-                            <p class="text-dark"><i class="fa fa-check text-primary me-3"></i>Talent Grooming & Management</p>
-                            <p class="text-dark mb-4"><i class="fa fa-check text-primary me-3"></i>Agency Development</p>
-                            <p>
-                                Our creativity and innovation consistently set us apart, delivering world-class experiences that are both impactful and unforgettable.
-                            </p>
+                    <p style='color:white'>
+                        At JIFAWEEK, every child is seen as a leader in the making. Through fashion, art, culture, and performance, we nurture self-esteem, bold expression, leadership skills, and global awareness preserving our legacy while preparing children to thrive in tomorrow’s world.
+                    </p>
 
-                            <h4 class="text-primary mt-4"><strong>Fashion Meets Global Impact</strong></h4>
+                    <h4 class="tech-heading mt-4">A Platform With Purpose</h4>
 
-                            <p>
-                                JIFAWEEK is strategically aligned with the United Nations Sustainable Development Goals (SDGs), with strong emphasis on:
-                            </p>
+                    <p style='color:white'>
+                        JIFAWEEK is proudly packaged by Woodland Approach LTD a fully registered and incorporated creative powerhouse made up of innovative professionals with expertise in:
+                    </p>
 
-                            <div class="row g-3 mt-3">
+                    <div class="row mt-3">
 
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-heartbeat mb-2"></i>
-                                        <h6>SDG 3</h6>
-                                        <small>Good Health</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-graduation-cap mb-2"></i>
-                                        <h6>SDG 4</h6>
-                                        <small>Quality Education</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-briefcase mb-2"></i>
-                                        <h6>SDG 8</h6>
-                                        <small>Economic Growth</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-lightbulb mb-2"></i>
-                                        <h6>SDG 9</h6>
-                                        <small>Innovation</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-city mb-2"></i>
-                                        <h6>SDG 11</h6>
-                                        <small>Sustainability</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-leaf mb-2"></i>
-                                        <h6>SDG 13</h6>
-                                        <small>Climate Action</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-water mb-2"></i>
-                                        <h6>SDG 14</h6>
-                                        <small>Life Below Water</small>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <div class="sdg-card-mini text-center p-3">
-                                        <i class="fa fa-handshake mb-2"></i>
-                                        <h6>SDG 16.2</h6>
-                                        <small>Child Protection</small>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- <div class="mt-4">
-                                <a class="btn btn-primary rounded-pill py-3 px-5" href="#">
-                                    More Information
-                                </a>
-                            </div> -->
-
+                        <div class="col-md-4">
+                            <p class="tech-list" style='color:white'><i class="fa fa-check"></i> Event Production</p>
                         </div>
+
+                        <div class="col-md-4">
+                            <p class="tech-list" style='color:white'><i class="fa fa-check"></i> Fashion Styling & Creative Direction</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="tech-list" style='color:white'><i class="fa fa-check"></i> Set Design</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="tech-list" style='color:white'><i class="fa fa-check"></i> Media & Public Relations</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="tech-list" style='color:white'><i class="fa fa-check"></i> Talent Grooming & Management</p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p class="tech-list" style='color:white'><i class="fa fa-check"></i> Agency Development</p>
+                        </div>
+
                     </div>
-                    <!-- <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="bg-white rounded p-5 h-100">
-                            <div class="row g-4 justify-content-center">
-                                <div class="col-12">
-                                    <div class="rounded bg-light">
-                                        <img src="img/about-1.png" class="img-fluid rounded w-100" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <div class="counter-counting">
-                                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">129</span>
-                                            <span class="h1 fw-bold text-primary">+</span>
-                                        </div>
-                                        <h4 class="mb-0 text-dark">Insurance Policies</h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <div class="counter-counting">
-                                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">99</span>
-                                            <span class="h1 fw-bold text-primary">+</span>
-                                        </div>
-                                        <h4 class="mb-0 text-dark">Awards WON</h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <div class="counter-counting">
-                                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">556</span>
-                                            <span class="h1 fw-bold text-primary">+</span>
-                                        </div>
-                                        <h4 class="mb-0 text-dark">Skilled Agents</h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="counter-item bg-light rounded p-3 h-100">
-                                        <div class="counter-counting">
-                                            <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">967</span>
-                                            <span class="h1 fw-bold text-primary">+</span>
-                                        </div>
-                                        <h4 class="mb-0 text-dark">Team Members</h4>
-                                    </div>
-                                </div>
+
+                    <h4 class="tech-heading mt-5">Fashion Meets Global Impact</h4>
+
+                    <p style='color:white'>
+                        JIFAWEEK is strategically aligned with the United Nations Sustainable Development Goals (SDGs).
+                    </p>
+
+                    <div class="row g-3 mt-3">
+
+                        <!-- SDG CARD -->
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-heartbeat"></i>
+                                <h6 style='color:white'>SDG 3</h6>
+                                <small>Good Health</small>
                             </div>
                         </div>
-                    </div> -->
+
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-graduation-cap"></i>
+                                <h6 style='color:white'>SDG 4</h6>
+                                <small>Quality Education</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-briefcase"></i>
+                                <h6 style='color:white'>SDG 8</h6>
+                                <small>Economic Growth</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-lightbulb"></i>
+                                <h6 style='color:white'>SDG 9</h6>
+                                <small>Innovation</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-city"></i>
+                                <h6 style='color:white'>SDG 11</h6>
+                                <small>Sustainability</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-leaf"></i>
+                                <h6 style='color:white'>SDG 13</h6>
+                                <small>Climate Action</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-water"></i>
+                                <h6 style='color:white'>SDG 14</h6>
+                                <small>Life Below Water</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-6">
+                            <div class="sdg-tech-card text-center">
+                                <i class="fa fa-handshake"></i>
+                                <h6 style='color:white'>SDG 16.2</h6>
+                                <small>Child Protection</small>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
-        <!-- About End -->
-
-        <!-- Service Start -->
-        <!-- <div class="container-fluid service py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Services</h4>
-                    <h1 class="display-4 mb-4">We Provide Best Services</h1>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
-                    </p>
-                </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
-                                <div class="service-icon p-3">
-                                    <i class="fa fa-users fa-2x"></i>
-                                </div>
-                            </div>
-                            <div class="service-content p-4">
-                                <div class="service-content-inner">
-                                    <a href="#" class="d-inline-block h4 mb-4">Life Insurance</a>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eum!</p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/blog-2.png" class="img-fluid rounded-top w-100" alt="">
-                                <div class="service-icon p-3">
-                                    <i class="fa fa-hospital fa-2x"></i>
-                                </div>
-                            </div>
-                            <div class="service-content p-4">
-                                <div class="service-content-inner">
-                                    <a href="#" class="d-inline-block h4 mb-4">Health Insurance</a>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eum!</p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
-                                <div class="service-icon p-3">
-                                    <i class="fa fa-car fa-2x"></i>
-                                </div>
-                            </div>
-                            <div class="service-content p-4">
-                                <div class="service-content-inner">
-                                    <a href="#" class="d-inline-block h4 mb-4">Car Insurance</a>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eum!</p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="service-item">
-                            <div class="service-img">
-                                <img src="img/blog-4.png" class="img-fluid rounded-top w-100" alt="">
-                                <div class="service-icon p-3">
-                                    <i class="fa fa-home fa-2x"></i>
-                                </div>
-                            </div>
-                            <div class="service-content p-4">
-                                <div class="service-content-inner">
-                                    <a href="#" class="d-inline-block h4 mb-4">Home Insurance</a>
-                                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, eum!</p>
-                                    <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="#">More Services</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Service End -->
-
-        <!-- FAQs Start -->
-        <!-- <div class="container-fluid faq-section bg-light py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="h-100">
-                            <div class="mb-5">
-                                <h4 class="text-primary">Some Important FAQ's</h4>
-                                <h1 class="display-4 mb-0">Common Frequently Asked Questions</h1>
-                            </div>
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Q: What happens during Freshers' Week?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show active" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body rounded">
-                                            A: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Q: What is the transfer application process?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Q: Why should I attend community college?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            A: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.4s">
-                        <img src="img/carousel-2.png" class="img-fluid w-100" alt="">
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- FAQs End -->
-
-        <!-- Blog Start -->
-        <!-- <div class="container-fluid blog py-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">From Blog</h4>
-                    <h1 class="display-4 mb-4">News And Updates</h1>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
-                    </p>
-                </div>
-                <div class="row g-4 justify-content-center">
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog-1.png" class="img-fluid rounded-top w-100" alt="">
-                                <div class="blog-categiry py-2 px-4">
-                                    <span>Business</span>
-                                </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6 Comments</div>
-                                </div>
-                                <a href="#" class="h4 d-inline-block mb-3">Which allows you to pay down insurance bills</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog-2.png" class="img-fluid rounded-top w-100" alt="">
-                                <div class="blog-categiry py-2 px-4">
-                                    <span>Business</span>
-                                </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6 Comments</div>
-                                </div>
-                                <a href="#" class="h4 d-inline-block mb-3">Leverage agile frameworks to provide</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/blog-3.png" class="img-fluid rounded-top w-100" alt="">
-                                <div class="blog-categiry py-2 px-4">
-                                    <span>Business</span>
-                                </div>
-                            </div>
-                            <div class="blog-content p-4">
-                                <div class="blog-comment d-flex justify-content-between mb-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span> Martin.C</div>
-                                    <div class="small"><span class="fa fa-calendar text-primary"></span> 30 Dec 2025</div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span> 6 Comments</div>
-                                </div>
-                                <a href="#" class="h4 d-inline-block mb-3">Leverage agile frameworks to provide</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="btn p-0">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Blog End -->
+    </div>
+</div>
+<!-- About End -->      
 
         <!-- Team Start -->
-        <div class="container-fluid team pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <br>
-                    <h4 class="text-primary">Our Team</h4>
-                    <!-- <h1 class="display-4 mb-4">Meet Our Expert Team Members</h1>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
-                    </p> -->
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="{{asset('home/img/team01.jpg')}}" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">ADEWALE YUSUF</h4>
-                                <small>Mr Useful Woodland</small>
-                                <p class="mb-0">COVENER / EXECUTIVE DIRECTO</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="{{asset('home/img/team02.jpg')}}" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">KAYODE GOMES</h4>
-                                <small>GOMES MULTIMEDIA</small>
-                                <p class="mb-0">HEAD OF CINEMATOGRAPHY & VISUAL STORYTELLING</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="{{asset('home/img/team03.jpg')}}" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">CHRISTABEL UWANDU OLUEBUBE</h4>
-                                <p class="mb-0">LEAD CHAPERONE</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="{{asset('home/img/team04.jpg')}}" class="img-fluid rounded-top w-100" alt="">
-                                <div class="team-icon">
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a class="btn btn-primary btn-sm-square rounded-pill mb-0" href=""><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <div class="team-title p-4">
-                                <h4 class="mb-0">EMIOLA ADEMOLA</h4>
-                                <p class="mb-0">CREATIVE/VISUAL DIRECTOR</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="container-fluid team tech-section pb-5">
+    <div class="container pb-5">
+
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width:800px;">
+            <br>
+            <h2 class="section-title">Our Team</h2>
         </div>
-        <!-- Team End -->
 
-        <!-- Testimonial Start -->
-        <!-- <div class="container-fluid testimonial pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Testimonial</h4>
-                    <h1 class="display-4 mb-4">What Our Customers Are Saying</h1>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
-                    </p>
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="testimonial-item bg-light rounded">
-                        <div class="row g-0">
-                            <div class="col-4  col-lg-4 col-xl-3">
-                                <div class="h-100">
-                                    <img src="img/testimonial-1.jpg" class="img-fluid h-100 rounded" style="object-fit: cover;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-8 col-lg-8 col-xl-9">
-                                <div class="d-flex flex-column my-auto text-start p-4">
-                                    <h4 class="text-dark mb-0">Client Name</h4>
-                                    <p class="mb-3">Profession</p>
-                                    <div class="d-flex text-primary mb-3">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim error molestiae aut modi corrupti fugit eaque rem nulla incidunt temporibus quisquam,
-                                    </p>
-                                </div>
-                            </div>
+        <div class="row g-4">
+
+            <!-- TEAM MEMBER -->
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="team-tech-card">
+
+                    <div class="team-img">
+                        <img src="{{asset('home/img/team01.jpg')}}" class="img-fluid w-100" alt="">
+
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="testimonial-item bg-light rounded">
-                        <div class="row g-0">
-                            <div class="col-4  col-lg-4 col-xl-3">
-                                <div class="h-100">
-                                    <img src="img/testimonial-2.jpg" class="img-fluid h-100 rounded" style="object-fit: cover;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-8 col-lg-8 col-xl-9">
-                                <div class="d-flex flex-column my-auto text-start p-4">
-                                    <h4 class="text-dark mb-0">Client Name</h4>
-                                    <p class="mb-3">Profession</p>
-                                    <div class="d-flex text-primary mb-3">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star text-body"></i>
-                                    </div>
-                                    <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim error molestiae aut modi corrupti fugit eaque rem nulla incidunt temporibus quisquam,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+
+                    <div class="team-content">
+                        <h4>ADEWALE YUSUF</h4>
+                        <small>Mr Useful Woodland</small>
+                        <p style='color:white'>COVENER / EXECUTIVE DIRECTOR</p>
                     </div>
-                    <div class="testimonial-item bg-light rounded">
-                        <div class="row g-0">
-                            <div class="col-4  col-lg-4 col-xl-3">
-                                <div class="h-100">
-                                    <img src="img/testimonial-3.jpg" class="img-fluid h-100 rounded" style="object-fit: cover;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-8 col-lg-8 col-xl-9">
-                                <div class="d-flex flex-column my-auto text-start p-4">
-                                    <h4 class="text-dark mb-0">Client Name</h4>
-                                    <p class="mb-3">Profession</p>
-                                    <div class="d-flex text-primary mb-3">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star text-body"></i>
-                                        <i class="fas fa-star text-body"></i>
-                                    </div>
-                                    <p class="mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim error molestiae aut modi corrupti fugit eaque rem nulla incidunt temporibus quisquam,
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-        </div> -->
-        <!-- Testimonial End -->
 
+
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="team-tech-card">
+
+                    <div class="team-img">
+                        <img src="{{asset('home/img/team02.jpg')}}" class="img-fluid w-100" alt="">
+
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-content">
+                        <h4>KAYODE GOMES</h4>
+                        <small>GOMES MULTIMEDIA</small>
+                        <p style='color:white'>HEAD OF CINEMATOGRAPHY & VISUAL STORYTELLING</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="team-tech-card">
+
+                    <div class="team-img">
+                        <img src="{{asset('home/img/team03.jpg')}}" class="img-fluid w-100" alt="">
+
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-content">
+                        <h4>CHRISTABEL UWANDU OLUEBUBE</h4>
+                        <p style='color:white'>LEAD CHAPERONE</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
+                <div class="team-tech-card">
+
+                    <div class="team-img">
+                        <img src="{{asset('home/img/team04.jpg')}}" class="img-fluid w-100" alt="">
+
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-content">
+                        <h4>EMIOLA ADEMOLA</h4>
+                        <p style='color:white'>CREATIVE / VISUAL DIRECTOR</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- Team End -->  
 
         <!-- Footer Start -->
-        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-xl-9">
-                        <div class="mb-5">
-                            <div class="row g-4">
-                                <div class="col-md-6 col-lg-6 col-xl-5">
-                                    <div class="footer-item">
-                                        <a href="index.html" class="p-0">
-                                            <h3 class="text-white"><i class="fab fa-slack me-3"></i> JifaWeek</h3>
-                                            <!-- <img src="img/logo.png" alt="Logo"> -->
-                                        </a>
-                                        <p class="text-white mb-4">JIFAWEEK is proudly packaged by Woodland Approach LTD a fully registered and incorporated creative powerhouse.</p>
-                                        <div class="footer-btn d-flex">
-                                            <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-twitter"></i></a>
-                                            <a class="btn btn-md-square rounded-circle me-3" href="#"><i class="fab fa-instagram"></i></a>
-                                            <a class="btn btn-md-square rounded-circle me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-3">
-                                    <div class="footer-item">
-                                        <h4 class="text-white mb-4">Useful Links</h4>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Designer Signup</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Child Model Signup</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Volunteer Signup</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Media/Press Signup</a>
-                                        <a href="#"><i class="fas fa-angle-right me-2"></i> Contact</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="footer-item">
-                                        <h4 class="mb-4 text-white">Instagram</h4>
-                                        <div class="row g-3">
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-1.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="img/instagram-footer-1.jpg" data-lightbox="footerInstagram-1" class="my-auto"><i class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                           </div>
-                                           <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-2.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="img/instagram-footer-2.jpg" data-lightbox="footerInstagram-2" class="my-auto"><i class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                           </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-3.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="img/instagram-footer-3.jpg" data-lightbox="footerInstagram-3" class="my-auto"><i class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                           </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-4.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="img/instagram-footer-4.jpg" data-lightbox="footerInstagram-4" class="my-auto"><i class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                           </div>
-                                            <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-5.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="img/instagram-footer-5.jpg" data-lightbox="footerInstagram-5" class="my-auto"><i class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                           </div>
-                                           <div class="col-4">
-                                                <div class="footer-instagram rounded">
-                                                    <img src="img/instagram-footer-6.jpg" class="img-fluid w-100" alt="">
-                                                    <div class="footer-search-icon">
-                                                        <a href="img/instagram-footer-6.jpg" data-lightbox="footerInstagram-6" class="my-auto"><i class="fas fa-link text-white"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-5" style="border-top: 1px solid rgba(255, 255, 255, 0.08);">
-                            <div class="row g-0">
-                                <div class="col-12">
-                                    <div class="row g-4">
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fas fa-map-marker-alt fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Address</h4>
-                                                    <p class="mb-0">123 Street New York.USA</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fas fa-envelope fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Mail Us</h4>
-                                                    <p class="mb-0">info@example.com</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-xl-4">
-                                            <div class="d-flex">
-                                                <div class="btn-xl-square bg-primary text-white rounded p-4 me-4">
-                                                    <i class="fa fa-phone-alt fa-2x"></i>
-                                                </div>
-                                                <div>
-                                                    <h4 class="text-white">Telephone</h4>
-                                                    <p class="mb-0">(+012) 3456 7890</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<div class="container-fluid footer py-5">
+    <div class="container footer-card py-5">
+        <div class="row g-5">
+            <!-- Brand & Social -->
+            <div class="col-xl-5">
+                <div class="footer-item mb-5">
+                    <a href="index.html" class="p-0">
+                        <h3 class="text-neon"><i class="fab fa-slack me-3"></i> JifaWeek</h3>
+                    </a>
+                    <p class="text-glow mb-4" style='color:white'>
+                        JIFAWEEK is proudly packaged by Woodland Approach LTD, a fully registered creative powerhouse.
+                    </p>
+                    <div class="footer-btn d-flex">
+                        <a class="btn btn-md-square rounded-circle me-3 social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-md-square rounded-circle me-3 social-icon" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-md-square rounded-circle me-3 social-icon" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-md-square rounded-circle social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                    
-                    <div class="col-xl-3">
-                        <div class="footer-item">
-                            <h4 class="text-white mb-4">Newsletter</h4>
-                            <p class="text-white mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <div class="position-relative rounded-pill mb-4">
-                                <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                                <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">SignUp</button>
-                            </div>
-                            <div class="d-flex flex-shrink-0">
-                                <div class="footer-btn">
-                                    <a href="#" class="btn btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
-                                        <i class="fa fa-phone-alt fa-2x"></i>
-                                        <div class="position-absolute" style="top: 2px; right: 12px;">
-                                            <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="d-flex flex-column ms-3 flex-shrink-0">
-                                    <span>Call to Our Experts</span>
-                                    <a href="tel:+ 0123 456 7890"><span class="text-white">Free: + 0123 456 7890</span></a>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </div>
+
+            <!-- Useful Links -->
+            <div class="col-xl-3">
+                <div class="footer-item mb-5">
+                    <h4 class="text-neon mb-4">Useful Links</h4>
+                    <a href="#" style='color:white'><i class="fas fa-angle-right me-2"></i> About Us</a>
+                    <a href="#" style='color:white'><i class="fas fa-angle-right me-2"></i> Designer Signup</a>
+                    <a href="#" style='color:white'><i class="fas fa-angle-right me-2"></i> Child Model Signup</a>
+                    <a href="#" style='color:white'><i class="fas fa-angle-right me-2"></i> Volunteer Signup</a>
+                    <a href="#" style='color:white'><i class="fas fa-angle-right me-2"></i> Media/Press Signup</a>
+                    <a href="#" style='color:white'><i class="fas fa-angle-right me-2"></i> Contact</a>
+                </div>
+            </div>
+
+        </div> 
+
+        <!-- Contact Info -->
+        <div class="pt-5 border-top-neon">
+            <div class="row g-4 text-glow">
+                <div class="col-lg-4 d-flex align-items-center">
+                    <div class="icon-square bg-neon me-3"><i class="fas fa-map-marker-alt fa-2x"></i></div>
+                    <div>
+                        <h5 class="text-neon">Address</h5>
+                        <p style='color:white'>123 Street, New York, USA</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center">
+                    <div class="icon-square bg-neon me-3"><i class="fas fa-envelope fa-2x"></i></div>
+                    <div>
+                        <h5 class="text-neon">Mail Us</h5>
+                        <p style='color:white'>info@example.com</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center">
+                    <div class="icon-square bg-neon me-3"><i class="fa fa-phone-alt fa-2x"></i></div>
+                    <div>
+                        <h5 class="text-neon">Telephone</h5>
+                        <p style='color:white'>(+012) 3456 7890</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+    </div>
+</div>
+<!-- Footer End -->
         
         <!-- Copyright Start -->
         <div class="container-fluid copyright py-4">

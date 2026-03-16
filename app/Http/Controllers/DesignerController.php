@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Designer;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DesignerPaymentSuccess;
+use App\Mail\DesignerPaymentFailed;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class DesignerController extends Controller
 {
@@ -13,9 +17,9 @@ class DesignerController extends Controller
         return view('designer.signup');
     }   
 
-     // Save designer info from wizard
-    public function store(Request $request)
+   public function store(Request $request)
     {
+        // Validate required fields
         $validated = $request->validate([
             'brand_name' => 'required|string|max:255',
             'designer_name' => 'required|string|max:255',
@@ -31,6 +35,21 @@ class DesignerController extends Controller
             'description' => 'nullable|string|max:500',
         ]);
 
+        // Check if designer already exists
+        $designer = Designer::where('email', $validated['email'])->first();
+
+        if ($designer) {
+            if ($designer->paid) {
+                // Already registered and paid
+                return redirect()->route('designer-form')->with('info', 'You have already registered and completed payment.');
+            }
+
+            // Already registered but not paid → redirect to payment
+            return redirect()->route('designer-payment', ['designer' => $designer->id])
+                            ->with('info', 'You have already registered. Please complete your payment.');
+        }
+
+        // New designer → create
         $designer = Designer::create($validated);
 
         // Redirect to payment page
@@ -43,7 +62,8 @@ class DesignerController extends Controller
         // return response()->json([
         //     'data' => $designer,
         // ]);
-        $amount = 100000 * 100; // Paystack uses kobo
+        // $amount = 100000 * 100;
+        $amount = 100 * 100;
 
         return view('designer.payment', compact('designer', 'amount'));
     }
@@ -56,8 +76,8 @@ class DesignerController extends Controller
 
         $designer = Designer::findOrFail($designerId);
 
-        // Call Paystack verify endpoint
         $curl = curl_init();
+
         curl_setopt_array($curl, [
             CURLOPT_URL => "https://api.paystack.co/transaction/verify/$reference",
             CURLOPT_RETURNTRANSFER => true,
@@ -72,11 +92,44 @@ class DesignerController extends Controller
 
         $result = json_decode($response);
 
-        if($result && $result->data->status === 'success'){
-            $designer->update(['paid' => true, 'payment_reference' => $reference]);
-            return redirect()->route('designer.success');
-        }
+        if ($result && isset($result->data) && $result->data->status === 'success') {
 
-        return redirect()->route('designer.failure');
+            $designer->update([
+                'paid' => true,
+                'payment_reference' => $reference
+            ]);
+
+            //send email for successful transaction------
+            //--------send mail to applicant email address           
+
+            $pdf = Pdf::loadView('pdf.designer-receipt', [
+                'designer' => $designer
+            ]);
+
+            $receiptNumber = 'JIFA-REC-'.date('Y').'-'.$designer->id;
+
+            $pdfPath = public_path('receipts/'.$receiptNumber.'.pdf');
+
+            $pdf->save($pdfPath);
+
+            Mail::to($designer->email)->send(new DesignerPaymentSuccess($designer));
+            // //------end---------------
+
+            return redirect()->route('designer.success', $designer->id);
+        }
+        //send-email for failed transaction
+        Mail::to($designer->email)->send(new DesignerPaymentFailed($designer));
+        return redirect()->route('designer.failure', $designer->id);
+        
+    }
+
+    public function success(Designer $designer)
+    {
+        return view('designer.success', compact('designer'));
+    }
+
+    public function failure(Designer $designer)
+    {
+        return view('designer.failure', compact('designer'));
     }
 }

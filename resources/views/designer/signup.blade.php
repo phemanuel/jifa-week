@@ -3,6 +3,11 @@
 @section('content')
 <div class="container py-5">
     <div class="row justify-content-center">
+        @if(session('info'))
+    <div class="alert alert-info">
+        {{ session('info') }}
+    </div>
+@endif
         <div class="col-lg-10">
 
             <!-- Wizard Fee Banner -->
