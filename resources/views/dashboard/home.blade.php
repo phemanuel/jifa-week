@@ -8,6 +8,7 @@
         <meta content="" name="keywords">
         <meta content="" name="description">
 
+        <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,31 +58,73 @@
 
         </style>
         
-        <style type="text/css">
-        	.navbar-brand h1 {
+        <style>
+/* =========================
+   NAVBAR BRAND (GRADIENT TEXT)
+========================= */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 420px; /* controls wrapping */
+}
+
+.navbar-brand img {
+    height: 50px;
+    flex-shrink: 0;
+}
+
+.navbar-brand h1 {
     font-family: 'Baloo 2', cursive;
-    font-weight: 900;              /* thicker */
-    font-size: 38px;               /* slightly bigger */
+    font-weight: 900;
+    font-size: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
 
-    /* DARKER fashion runway colors */
     background: linear-gradient(90deg, 
-        #c000ff,   /* deep purple */
-        #ff0066,   /* strong pink */
-        #ff6a00,   /* deep orange */
-        #0051ff    /* royal blue */
+        #c000ff,
+        #ff0066,
+        #ff6a00,
+        #0051ff
     );
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* strong depth shadow */
     text-shadow: 3px 4px 12px rgba(0,0,0,0.6);
-}
-			}
 
-        </style>
+    /* ✅ Enable wrapping */
+    white-space: normal;
+    line-height: 1.1;
+    margin: 0;
+}
+
+/* =========================
+   NAVBAR LINKS FIX
+========================= */
+.navbar-nav {
+    margin-left: auto;
+}
+
+/* =========================
+   RESPONSIVE FIXES
+========================= */
+@media (max-width: 1200px) {
+    .navbar-brand h1 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand h1 {
+        font-size: 20px;
+    }
+
+    .navbar-brand {
+        max-width: 250px;
+    }
+}
+</style>
         <style type="text/css">
         	.header-carousel-item::before {
     content: "";
@@ -821,49 +864,84 @@ color:#cbd5f5;
         <!-- Navbar & Hero Start -->
         <div class="container-fluid nav-bar px-0 px-lg-4 py-lg-0">
             <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-dark"> 
-                    <a href="#" class="navbar-brand p-0">
-                        <h1 class="text-primary mb-0"><i class="fab fa-slack me-2"></i> Jifa Week</h1>
-                        <!-- <img src="img/logo.png" alt="Logo"> -->
+                <nav class="navbar navbar-expand-lg navbar-dark">
+    
+    <!-- BRAND -->
+    <a href="#" class="navbar-brand p-0">
+        <img src="{{asset('images/jifa-logo.png')}}" alt="Logo">
+        <h1 class="mb-0">
+            Jewel International <br>
+            Fashion Art Week
+        </h1>
+    </a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="fa fa-bars"></span>
+    </button>
+
+    <!-- NAV LINKS -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mx-0 mx-lg-auto nav-tech bg-dark">
+            
+            <a href="#" class="nav-item nav-link active">
+                <i class="fas fa-home me-1"></i>Home
+            </a>
+
+            <a href="#" class="nav-item nav-link">
+                <i class="fas fa-info-circle me-1"></i>About
+            </a>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                    <i class="fas fa-user-plus me-1"></i>Signup 
+                    <span class="dropdown-toggle"></span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="{{route('designer-form')}}" class="dropdown-item">
+                        <i class="fas fa-pencil-alt me-1"></i>Designers
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav mx-0 mx-lg-auto nav-tech bg-dark" >
-                            <a href="#" class="nav-item nav-link active"><i class="fas fa-home me-1"></i>Home</a>
-                            <a href="#" class="nav-item nav-link"><i class="fas fa-info-circle me-1"></i>About</a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-child me-1"></i>Child Model(3-12)
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-hands-helping me-1"></i>Volunteer
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-newspaper me-1"></i>Media/Press
+                    </a>
+                </div>
+            </div>
 
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                    <i class="fas fa-user-plus me-1"></i>Signup <span class="dropdown-toggle"></span>
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a href="{{route('designer-form')}}" class="dropdown-item"><i class="fas fa-pencil-alt me-1"></i>Designers</a>
-                                    <a href="#" class="dropdown-item"><i class="fas fa-child me-1"></i>Child Model(3-12)</a>
-                                    <a href="#" class="dropdown-item"><i class="fas fa-hands-helping me-1"></i>Volunteer</a>
-                                    <a href="#" class="dropdown-item"><i class="fas fa-newspaper me-1"></i>Media/Press</a>
-                                </div>
-                            </div>
+            <a href="#" class="nav-item nav-link">
+                <i class="fas fa-images me-1"></i>Gallery
+            </a>
 
-                            <a href="#" class="nav-item nav-link"><i class="fas fa-images me-1"></i>Gallery</a>
-                            <a href="#" class="nav-item nav-link"><i class="fas fa-envelope me-1"></i>Contact</a>
-                        </div>
-                    </div>
+            <a href="#" class="nav-item nav-link">
+                <i class="fas fa-envelope me-1"></i>Contact
+            </a>
 
-                    <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-                        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
-                            <i class="fa fa-phone-alt fa-2x"></i>
-                            <div class="position-absolute" style="top: 7px; right: 12px;">
-                                <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                            </div>
-                        </a>
-                       <div class="contact-experts d-flex flex-column ms-3">
-                        <span class="contact-label">Call to Our Experts</span>
-                        <a href="tel:+01234567890" class="contact-number">Free: +0123 456 7890</a>
-                        </div>
-                    </div>
-                </nav>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <div class="d-none d-xl-flex flex-shrink-0 ps-4">
+        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
+            <i class="fa fa-phone-alt fa-2x"></i>
+            <div class="position-absolute" style="top: 7px; right: 12px;">
+                <span><i class="fa fa-comment-dots text-secondary"></i></span>
+            </div>
+        </a>
+
+        <div class="d-flex flex-column ms-3">
+            <span style="font-size: 12px; color: #ccc;">Call to Our Experts</span>
+            <a href="tel:+01234567890" style="font-weight: 600; color: #fff; text-decoration: none;">
+                Free: +0123 456 7890
+            </a>
+        </div>
+    </div>
+
+</nav>
             </div>
         </div>
         <!-- Navbar & Hero End -->
