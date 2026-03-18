@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Payment Successful</title>
+    <title>Payment</title>
 </head>
 <body style="margin:0; padding:0; background:#f4f6f8; font-family: Arial, Helvetica, sans-serif;">
 
@@ -50,7 +50,7 @@ We are excited to have your brand participate.
 
 <tr>
 <td><strong>Amount Paid</strong></td>
-<td style="color:#27ae60; font-weight:bold;">₦100,000</td>
+<td style="color:#27ae60; font-weight:bold;">₦{{ number_format($designer->fee, 2) }}</td>
 </tr>
 
 <tr style="background:#f7f7f7;">

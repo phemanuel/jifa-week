@@ -12,9 +12,9 @@
 
             <!-- Wizard Fee Banner -->
             <div class="d-flex align-items-center justify-content-center mb-3 p-2 rounded shadow-sm" 
-                 style="background: linear-gradient(90deg, #19170c, #08421a); color: #fff; font-size:1.1rem; font-weight:600;">
+                 style="background: linear-gradient(90deg, #cbcbc5, #bec1bf); color: #0d0c0c; font-size:1.1rem; font-weight:600;">
                 <!-- <i class="bi bi-currency-dollar me-2" style="font-size:1.2rem;"></i> -->
-                ₦100,000 Participation Fee
+                ₦10,000 Participation Fee
             </div>
 
             <div class="card shadow-lg">
@@ -30,7 +30,7 @@
                     <!-- Right: Wizard Form -->
                     <div class="col-md-8">
                         <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Designer Registration</h4>
+                            <h4 class="mb-0" style='color:white'>Designer Registration</h4>
                             <div class="progress mt-2" style="height:6px;">
                                 <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width:33%;"></div>
                             </div>

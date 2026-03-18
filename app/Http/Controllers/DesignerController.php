@@ -19,15 +19,14 @@ class DesignerController extends Controller
 
    public function store(Request $request)
     {
-        // Validate required fields
         $validated = $request->validate([
             'brand_name' => 'required|string|max:255',
             'designer_name' => 'required|string|max:255',
-            'year_established' => 'required|integer',
+            'year_established' => 'required|integer|min:1900|max:' . date('Y'),
             'instagram' => 'nullable|string|max:255',
             'website' => 'nullable|string|max:255',
             'phone' => 'required|string|max:50',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:designers,email',
             'business_address' => 'nullable|string',
             'category' => 'required|string',
             'pieces' => 'required|integer',
@@ -35,46 +34,56 @@ class DesignerController extends Controller
             'description' => 'nullable|string|max:500',
         ]);
 
-        // Check if designer already exists
-        $designer = Designer::where('email', $validated['email'])->first();
-
-        if ($designer) {
-            if ($designer->paid) {
-                // Already registered and paid
-                return redirect()->route('designer-form')->with('info', 'You have already registered and completed payment.');
-            }
-
-            // Already registered but not paid → redirect to payment
-            return redirect()->route('designer-payment', ['designer' => $designer->id])
-                            ->with('info', 'You have already registered. Please complete your payment.');
-        }
-
-        // New designer → create
         $designer = Designer::create($validated);
 
-        // Redirect to payment page
-        return redirect()->route('designer-payment', ['designer' => $designer->id]);
-    }
+        $reference = "JifaWeek-Desg-" . \Illuminate\Support\Str::uuid();
+        $designer->update([
+            'payment_reference' => $reference,
+            'fee' => '10000'
+        
+        ]);
 
+        if (!file_exists(public_path('receipts'))) {
+            mkdir(public_path('receipts'), 0755, true);
+        }
+
+        $receiptNumber = $reference;       
+
+        // $pdf = Pdf::loadView('pdf.designer-receipt', [
+        //         'designer' => $designer
+        //     ]);
+        // $pdfPath = public_path('receipts/'.$receiptNumber.'.pdf');
+
+        // $pdf->save($pdfPath);
+
+        // Mail::to($designer->email)->send(new DesignerPaymentSuccess($designer));
+
+        return redirect()->route('designer-payment', $designer->id);
+    }
+    
     // Show payment page
     public function payment(Designer $designer)
     {
         // return response()->json([
         //     'data' => $designer,
         // ]);
-        // $amount = 100000 * 100;
+        // $amount = 10500 * 100;
         $amount = 100 * 100;
 
         return view('designer.payment', compact('designer', 'amount'));
     }
 
-    // Verify Paystack payment
     public function verifyPayment(Request $request)
     {
         $reference = $request->reference;
-        $designerId = $request->designer_id;
 
-        $designer = Designer::findOrFail($designerId);
+        $designer = Designer::where('payment_reference', $reference)->firstOrFail();
+
+        // جلوگیری از تکرار
+        if ($designer->paid) {
+            return redirect()->route('designer.success', $designer->id)
+                ->with('info', 'Payment already verified.');
+        }
 
         $curl = curl_init();
 
@@ -83,7 +92,6 @@ class DesignerController extends Controller
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => [
                 "Authorization: Bearer " . env('PAYSTACK_SECRET_KEY'),
-                "Cache-Control: no-cache",
             ],
         ]);
 
@@ -92,35 +100,42 @@ class DesignerController extends Controller
 
         $result = json_decode($response);
 
-        if ($result && isset($result->data) && $result->data->status === 'success') {
+        if (!$result || !isset($result->data)) {
+            abort(500, 'Invalid response from Paystack');
+        }
+
+        $data = $result->data;
+
+        if ($data->status !== 'success') {
+            return redirect()->route('designer.failure', $designer->id);
+        }
+
+        if ($data->amount != ($designer->fee * 100)) {
+            abort(400, 'Invalid amount');
+        }
+
+        if ($data->currency !== 'NGN') {
+            abort(400, 'Invalid currency');
+        }
+
+        \DB::transaction(function () use ($designer, $reference) {
 
             $designer->update([
                 'paid' => true,
-                'payment_reference' => $reference
+                'payment_status' => 'success'
             ]);
-
-            //send email for successful transaction------
-            //--------send mail to applicant email address           
 
             $pdf = Pdf::loadView('pdf.designer-receipt', [
                 'designer' => $designer
             ]);
 
-            $receiptNumber = 'JIFA-REC-'.date('Y').'-'.$designer->id;
+            $pdf->save(public_path('receipts/'.$reference.'.pdf'));
 
-            $pdfPath = public_path('receipts/'.$receiptNumber.'.pdf');
+            Mail::to($designer->email)
+                ->send(new DesignerPaymentSuccess($designer));
+        });
 
-            $pdf->save($pdfPath);
-
-            Mail::to($designer->email)->send(new DesignerPaymentSuccess($designer));
-            // //------end---------------
-
-            return redirect()->route('designer.success', $designer->id);
-        }
-        //send-email for failed transaction
-        Mail::to($designer->email)->send(new DesignerPaymentFailed($designer));
-        return redirect()->route('designer.failure', $designer->id);
-        
+        return redirect()->route('designer.success', $designer->id);
     }
 
     public function success(Designer $designer)

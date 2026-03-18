@@ -27,7 +27,7 @@ Route::get('/designer-signup',[DesignerController::class,'form'])
 Route::post('/designer-store',[DesignerController::class,'store'])
 ->name('designer.store');
 
-Route::post('/designer-payment-verify',[DesignerController::class,'verifyPayment'])
+Route::get('/designer-payment-verify', [DesignerController::class,'verifyPayment'])
 ->name('designer.verify');
 
 Route::get('/designer/{designer}/payment', [DesignerController::class, 'payment'])
@@ -38,4 +38,13 @@ Route::get('/designer/payment/success/{designer}', [DesignerController::class, '
 
 Route::get('/designer/payment/failure/{designer}', [DesignerController::class, 'failure'])
 ->name('designer.failure');
+
+// Route::get('/test-mail', function () {
+//     Mail::raw('Test email working', function ($message) {
+//         $message->to('emmakinyooye@gmail.com')
+//                 ->subject('Test Mail');
+//     });
+
+//     return 'Mail sent!';
+// });
 

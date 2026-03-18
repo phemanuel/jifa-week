@@ -820,45 +820,45 @@ color:#cbd5f5;
         <!-- Spinner End -->
 
        <!-- Topbar Start -->
-<div class="container-fluid topbar px-0 px-lg-4 py-2 d-none d-lg-block">
-    <div class="container">
-        <div class="row gx-0 align-items-center">
-            <!-- Left Side: Location & Email -->
-            <div class="col-lg-8 text-center text-lg-start mb-lg-0">
-                <div class="d-flex flex-wrap topbar-info">
-                    <div class="border-end border-light pe-3">
-                        <a href="#" class="topbar-link">
-                            <i class="fas fa-map-marker-alt me-2"></i>Find A Location
-                        </a>
-                    </div>
-                    <div class="ps-3">
-                        <a href="mailto:example@gmail.com" class="topbar-link">
-                            <i class="fas fa-envelope me-2"></i>example@gmail.com
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <div class="container-fluid topbar px-0 px-lg-4 py-2 d-none d-lg-block">
+                <div class="container">
+                    <div class="row gx-0 align-items-center">
+                        <!-- Left Side: Location & Email -->
+                        <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+                            <div class="d-flex flex-wrap topbar-info">
+                                <div class="border-end border-light pe-3">
+                                    <a href="#" class="topbar-link">
+                                        <i class="fas fa-map-marker-alt me-2"></i>Find A Location
+                                    </a>
+                                </div>
+                                <div class="ps-3">
+                                    <a href="mailto:jifaweek.com" class="topbar-link">
+                                        <i class="fas fa-envelope me-2"></i>info@jifaweek.com
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- Right Side: Social + Language -->
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-flex justify-content-end align-items-center">
-                    <div class="d-flex border-end border-light pe-3 social-icons">
-                        <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-instagram"></i></a>
-                        <a class="btn p-0 neon-icon me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="dropdown ms-3">
-                        <a href="#" class="dropdown-toggle topbar-link" data-bs-toggle="dropdown">
-                            <small><i class="fas fa-globe-europe me-2"></i>English</small>
-                        </a>
+                        <!-- Right Side: Social + Language -->
+                        <div class="col-lg-4 text-center text-lg-end">
+                            <div class="d-flex justify-content-end align-items-center">
+                                <div class="d-flex border-end border-light pe-3 social-icons">
+                                    <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-twitter"></i></a>
+                                    <a class="btn p-0 neon-icon me-3" href="#"><i class="fab fa-instagram"></i></a>
+                                    <a class="btn p-0 neon-icon me-0" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <!-- <div class="dropdown ms-3">
+                                    <a href="#" class="dropdown-toggle topbar-link" data-bs-toggle="dropdown">
+                                        <small><i class="fas fa-globe-europe me-2"></i>English</small>
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- Topbar End -->
+            <!-- Topbar End -->
 
 
         <!-- Navbar & Hero Start -->
@@ -866,82 +866,96 @@ color:#cbd5f5;
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-dark">
     
-    <!-- BRAND -->
-    <a href="#" class="navbar-brand p-0">
-        <img src="{{asset('images/jifa-logo.png')}}" alt="Logo">
-        <h1 class="mb-0">
-            Jewel International <br>
-            Fashion Art Week
-        </h1>
-    </a>
-
-    <!-- TOGGLER -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <span class="fa fa-bars"></span>
-    </button>
-
-    <!-- NAV LINKS -->
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav mx-0 mx-lg-auto nav-tech bg-dark">
-            
-            <a href="#" class="nav-item nav-link active">
-                <i class="fas fa-home me-1"></i>Home
-            </a>
-
-            <a href="#" class="nav-item nav-link">
-                <i class="fas fa-info-circle me-1"></i>About
-            </a>
-
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                    <i class="fas fa-user-plus me-1"></i>Signup 
-                    <span class="dropdown-toggle"></span>
-                </a>
-                <div class="dropdown-menu">
-                    <a href="{{route('designer-form')}}" class="dropdown-item">
-                        <i class="fas fa-pencil-alt me-1"></i>Designers
+                    <!-- BRAND -->
+                    <a href="#" class="navbar-brand p-0">
+                        <img src="{{asset('images/jifa-logo.png')}}" alt="Logo">
+                        <h1 class="mb-0">
+                            Jewel International <br>
+                            Fashion Art Week
+                        </h1>
                     </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-child me-1"></i>Child Model(3-12)
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-hands-helping me-1"></i>Volunteer
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-newspaper me-1"></i>Media/Press
-                    </a>
-                </div>
-            </div>
 
-            <a href="#" class="nav-item nav-link">
-                <i class="fas fa-images me-1"></i>Gallery
-            </a>
+                    <!-- TOGGLER -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars"></span>
+                    </button>
 
-            <a href="#" class="nav-item nav-link">
-                <i class="fas fa-envelope me-1"></i>Contact
-            </a>
+                    <!-- NAV LINKS -->
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav mx-0 mx-lg-auto nav-tech bg-dark">
+                            
+                            <a href="#" class="nav-item nav-link active">
+                                <i class="fas fa-home me-1"></i>Home
+                            </a>
 
-        </div>
-    </div>
+                            <a href="#AboutUs" class="nav-item nav-link">
+                                <i class="fas fa-info-circle me-1"></i>About
+                            </a>            
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                    <i class="fas fa-photo-video me-1"></i>Media 
+                                    <span class="dropdown-toggle"></span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    
+                                    <a href="{{route('designer-form')}}" class="dropdown-item">
+                                        <i class="fas fa-images me-1"></i>Gallery
+                                    </a>
 
-    <!-- CONTACT SECTION -->
-    <div class="d-none d-xl-flex flex-shrink-0 ps-4">
-        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
-            <i class="fa fa-phone-alt fa-2x"></i>
-            <div class="position-absolute" style="top: 7px; right: 12px;">
-                <span><i class="fa fa-comment-dots text-secondary"></i></span>
-            </div>
-        </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-video me-1"></i>Videos
+                                    </a>                    
 
-        <div class="d-flex flex-column ms-3">
-            <span style="font-size: 12px; color: #ccc;">Call to Our Experts</span>
-            <a href="tel:+01234567890" style="font-weight: 600; color: #fff; text-decoration: none;">
-                Free: +0123 456 7890
-            </a>
-        </div>
-    </div>
+                                </div>
+                            </div>          
+                            <a href="#Team" class="nav-item nav-link">
+                                <i class="fas fa-users me-1"></i>Team
+                            </a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-plus me-1"></i>Signup 
+                                    <span class="dropdown-toggle"></span>
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a href="{{route('designer-form')}}" class="dropdown-item">
+                                        <i class="fas fa-pencil-alt me-1"></i>Designers
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-child me-1"></i>Child Model(3-12)
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-hands-helping me-1"></i>Volunteer
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fas fa-newspaper me-1"></i>Media/Press
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="#" class="nav-item nav-link">
+                                <i class="fas fa-envelope me-1"></i>Contact
+                            </a>
 
-</nav>
+                        </div>
+                    </div>
+
+                    <!-- CONTACT SECTION -->
+                    <div class="d-none d-xl-flex flex-shrink-0 ps-4">
+                        <a href="#" class="btn btn-light btn-lg-square rounded-circle position-relative wow tada" data-wow-delay=".9s">
+                            <i class="fa fa-phone-alt fa-2x"></i>
+                            <div class="position-absolute" style="top: 7px; right: 12px;">
+                                <span><i class="fa fa-comment-dots text-secondary"></i></span>
+                            </div>
+                        </a>
+
+                        <div class="d-flex flex-column ms-3">
+                            <span style="font-size: 12px; color: #ccc;">Call to Our Experts</span>
+                            <a href="tel:+01234567890" style="font-weight: 600; color: #fff; text-decoration: none;">
+                                 +234 806 738 9576
+                            </a>
+                        </div>
+                    </div>
+
+                </nav>
             </div>
         </div>
         <!-- Navbar & Hero End -->
@@ -981,8 +995,8 @@ color:#cbd5f5;
                                 Celebrate young talents showcasing the latest trends in children’s fashion. Fun, color, and glamour all in one stage!
                             </p>
                             <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                <!-- <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a> -->
+                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#AboutUs">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -1009,8 +1023,8 @@ color:#cbd5f5;
                                 From the first step to the final bow, witness the magic of fashion come alive on our spectacular runway.
                             </p>
                             <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                <!-- <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a> -->
+                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#AboutUs">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -1037,8 +1051,8 @@ color:#cbd5f5;
                                 Celebrate young talents showcasing the latest trends in children’s fashion. Fun, color, and glamour all in one stage!
                             </p>
                             <div class="d-flex justify-content-center justify-content-md-start flex-shrink-0 mb-4">
-                                <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                <!-- <a class="btn btn-light neon-btn py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a> -->
+                                <a class="btn btn-dark neon-btn py-3 px-4 px-md-5 ms-2" href="#AboutUs">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -1056,7 +1070,7 @@ color:#cbd5f5;
         
 <br>
         <!-- About Start -->
-<div class="container-fluid tech-section about pb-5">
+<div class="container-fluid tech-section about pb-5" id="AboutUs">
     <div class="container pb-5">
         <div class="row g-5">
             <div class="col-lg-12 wow fadeInLeft" data-wow-delay="0.2s">
@@ -1190,7 +1204,7 @@ color:#cbd5f5;
 <!-- About End -->      
 
         <!-- Team Start -->
-<div class="container-fluid team tech-section pb-5">
+<div class="container-fluid team tech-section pb-5" id="Team">
     <div class="container pb-5">
 
         <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width:800px;">

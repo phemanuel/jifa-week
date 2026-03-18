@@ -23,7 +23,7 @@
                     <!-- Message -->
                     <div class="col-md-8">
                         <div class="card-header bg-success text-white">
-                            <h4 class="mb-0">Payment Successful</h4>
+                            <h4 class="mb-0" style="color:white;">Payment</h4>
                         </div>
 
                         <div class="card-body">
@@ -34,7 +34,7 @@
 
                             <p><strong>Brand:</strong> {{ $designer->brand_name }}</p>
                             <p><strong>Designer:</strong> {{ $designer->designer_name }}</p>
-                            <p><strong>Amount Paid:</strong> ₦100,000</p>
+                            <p><strong>Amount Paid:</strong> ₦{{ number_format($designer->fee, 2) }}</p>
 
                             <p class="mt-3">
                                 Thank you for registering your interest to showcase at JIFAWEEK 2026 #LegendsWillRise. <br>

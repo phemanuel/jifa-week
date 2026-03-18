@@ -21,7 +21,7 @@ class DesignerPaymentSuccess extends Mailable
     public function __construct(Designer $designer)
     {
         $this->designer = $designer;
-        $this->receiptNumber = 'JIFA-REC-' . date('Y') . '-' . $designer->id;
+        $this->receiptNumber = $designer->payment_reference;
 
         // Optional: store receipt number in model for template
         $this->designer->receipt_number = $this->receiptNumber;
@@ -30,7 +30,7 @@ class DesignerPaymentSuccess extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Payment Successful - Designer Registration',
+            subject: 'Welcome to JifaWeek',
         );
     }
 
@@ -45,16 +45,16 @@ class DesignerPaymentSuccess extends Mailable
     {
         $attachments = [];
 
-        // Generate receipt PDF in memory
-        $pdf = Pdf::loadView('pdf.designer-receipt', [
-            'designer' => $this->designer
-        ]);
+        // Attach already generated receipt
+        $receiptPath = public_path('receipts/'.$this->designer->payment_reference.'.pdf');
 
-        $attachments[] = Attachment::fromData(fn() => $pdf->output())
-            ->as('Designer_Receipt.pdf')
-            ->withMime('application/pdf');
+        if (file_exists($receiptPath)) {
+            $attachments[] = Attachment::fromPath($receiptPath)
+                ->as('Designer_Receipt.pdf')
+                ->withMime('application/pdf');
+        }
 
-        // Attach the static designer pack if it exists
+        // Attach static designer pack
         $designerPackPath = public_path('documents/Designer_pack.pdf');
         if (file_exists($designerPackPath)) {
             $attachments[] = Attachment::fromPath($designerPackPath)

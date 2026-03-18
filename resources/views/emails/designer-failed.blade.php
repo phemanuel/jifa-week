@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Payment Failed</title>
+    <title>Payment</title>
 </head>
 <body style="font-family: Arial, sans-serif; background:#f5f5f5; padding:30px;">
 

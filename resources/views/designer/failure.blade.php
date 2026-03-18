@@ -23,7 +23,7 @@
                     <!-- Message -->
                     <div class="col-md-8">
                         <div class="card-header bg-danger text-white">
-                            <h4 class="mb-0">Payment Failed</h4>
+                            <h4 class="mb-0" style="color:white;">Payment</h4>
                         </div>
 
                         <div class="card-body">
