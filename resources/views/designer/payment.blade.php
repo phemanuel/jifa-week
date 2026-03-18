@@ -14,7 +14,7 @@
             <div class="d-flex align-items-center justify-content-center mb-3 p-2 rounded shadow-sm" 
                  style="background: linear-gradient(90deg, #19170c, #08421a); color: #fff; font-size:1.1rem; font-weight:600;">
                 <!-- <i class="bi bi-currency-dollar me-2" style="font-size:1.2rem;"></i> -->
-                ₦10,000 Participation Fee
+                ₦100,000 Participation Fee
             </div>
 
             <div class="card shadow-lg">
@@ -52,19 +52,15 @@
 <script>
 document.getElementById('payButton').addEventListener('click', function(){
 
-    // Payment amount in kobo
-    let amount = {{ $amount }};
-
-    // Use the payment_reference generated when storing designer info
+    let amount = {{ $amount }}; // in kobo
     let paymentReference = '{{ $designer->payment_reference ?? "DS" . time() }}';
 
     let handler = PaystackPop.setup({
-        key: '{{ env("PAYSTACK_PUBLIC_KEY") }}',
+        key: '{{ config("services.paystack.public_key") }}', // use config, not env
         email: '{{ $designer->email }}',
-        amount: amount, // in kobo
+        amount: amount,
         ref: paymentReference, 
         callback: function(response){
-            // Redirect to verify route with reference
             window.location.href = "{{ route('designer.verify') }}?reference=" + response.reference;
         },
         onClose: function(){

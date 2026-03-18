@@ -34,7 +34,10 @@ class DesignerController extends Controller
             'description' => 'nullable|string|max:500',
         ]);
 
-        $designer = Designer::create($validated);
+        $designer = Designer::updateOrCreate(
+            ['email' => $validated['email']], // unique identifier
+            $validated
+        );
 
         $reference = "JifaWeek-Desg-" . \Illuminate\Support\Str::uuid();
         $designer->update([
@@ -67,8 +70,8 @@ class DesignerController extends Controller
         // return response()->json([
         //     'data' => $designer,
         // ]);
-        // $amount = 10500 * 100;
-        $amount = 100 * 100;
+        // $amount = 100 * 100;-----testing
+        $amount = 103000 * 100;
 
         return view('designer.payment', compact('designer', 'amount'));
     }
@@ -91,8 +94,11 @@ class DesignerController extends Controller
             CURLOPT_URL => "https://api.paystack.co/transaction/verify/$reference",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => [
-                "Authorization: Bearer " . env('PAYSTACK_SECRET_KEY'),
+                "Authorization: Bearer " . config('services.paystack.secret_key'),
+                "Cache-Control: no-cache",
             ],
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_CONNECTTIMEOUT => 10,
         ]);
 
         $response = curl_exec($curl);

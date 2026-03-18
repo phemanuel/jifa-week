@@ -30,6 +30,9 @@
 Your payment for the Designer Registration has been received successfully.
 We are excited to have your brand participate.
 </p>
+<p>
+    Attached is your DESIGNERS PACKAGE, which contains full participation details and next steps
+</p>
 
 <table width="100%" cellpadding="8" cellspacing="0" style="margin-top:20px; border-collapse:collapse;">
 

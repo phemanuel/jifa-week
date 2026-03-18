@@ -884,13 +884,13 @@ color:#cbd5f5;
                             </a>            
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
-                                    <i class="fas fa-photo-video me-1"></i>Media 
+                                    <i class="fas fa-photo-video me-1"></i>Gallery 
                                     <span class="dropdown-toggle"></span>
                                 </a>
                                 <div class="dropdown-menu">
                                     
                                     <a href="#" class="dropdown-item">
-                                        <i class="fas fa-images me-1"></i>Gallery
+                                        <i class="fas fa-images me-1"></i>Photos
                                     </a>
 
                                     <a href="#" class="dropdown-item">

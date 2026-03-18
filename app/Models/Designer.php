@@ -28,6 +28,8 @@ class Designer extends Model
         'description',
 
         'fee',
-        'payment_reference'
+        'payment_reference',
+        'payment_status',
+        'paid',
     ];
 }

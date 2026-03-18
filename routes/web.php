@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DesignerController;
+use App\Http\Controllers\ChildrenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Http\Controllers\DesignerController;
 // });
 
 Route::get('/', [DashboardController::class, 'home'])->name('home');
-
+//----Designer routes
 Route::get('/designer-signup',[DesignerController::class,'form'])
 ->name('designer-form');
 
@@ -38,7 +39,24 @@ Route::get('/designer/payment/success/{designer}', [DesignerController::class, '
 
 Route::get('/designer/payment/failure/{designer}', [DesignerController::class, 'failure'])
 ->name('designer.failure');
+//------Children routes
+Route::get('/children-signup',[ChildrenController::class,'form'])
+->name('children-form');
 
+Route::post('/children-store',[ChildrenController::class,'store'])
+->name('children.store');
+
+Route::get('/children-payment-verify', [ChildrenController::class,'verifyPayment'])
+->name('children.verify');
+
+Route::get('/children/{children}/payment', [ChildrenController::class, 'payment'])
+->name('children-payment');
+
+Route::get('/children/payment/success/{children}', [ChildrenController::class, 'success'])
+->name('children.success');
+
+Route::get('/children/payment/failure/{children}', [ChildrenController::class, 'failure'])
+->name('children.failure');
 // Route::get('/test-mail', function () {
 //     Mail::raw('Test email working', function ($message) {
 //         $message->to('emmakinyooye@gmail.com')

@@ -14,7 +14,7 @@
             <div class="d-flex align-items-center justify-content-center mb-3 p-2 rounded shadow-sm" 
                  style="background: linear-gradient(90deg, #cbcbc5, #bec1bf); color: #0d0c0c; font-size:1.1rem; font-weight:600;">
                 <!-- <i class="bi bi-currency-dollar me-2" style="font-size:1.2rem;"></i> -->
-                ₦10,000 Participation Fee
+                ₦100,000 Participation Fee
             </div>
 
             <div class="card shadow-lg">
