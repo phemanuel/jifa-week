@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DesignerController;
 use App\Http\Controllers\ChildrenController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +61,31 @@ Route::get('/children/payment/success/{children}', [ChildrenController::class, '
 
 Route::get('/children/payment/failure/{children}', [ChildrenController::class, 'failure'])
 ->name('children.failure');
+
+Route::middleware('guest')->group(function() {
+    Route::get('/admin', [AuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.submit');
+});
+
+// Logout route
+Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
+
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function() {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    // Users
+    Route::get('users', [UserController::class,'index'])->name('admin.users');
+    Route::get('users/create', [UserController::class,'create'])->name('admin.users.create');
+    Route::post('users', [UserController::class,'store'])->name('admin.users.store');
+    Route::get('users/{user}/edit', [UserController::class,'edit'])->name('admin.users.edit');
+    Route::put('users/{user}', [UserController::class,'update'])->name('admin.users.update');
+    Route::delete('users/{user}', [UserController::class,'destroy'])->name('admin.users.destroy');
+
+    Route::get('/designers', [AdminController::class, 'designers'])->name('admin.designers');
+    Route::get('/childrens', [AdminController::class, 'childrens'])->name('admin.childrens');
+
+    Route::post('/resend-email/{type}/{id}', [AdminController::class, 'resendEmail'])->name('admin.resendEmail');
+    Route::get('/payment-query/{type}/{id}', [AdminController::class, 'queryPayment'])->name('admin.queryPayment');
+});
 // Route::get('/test-mail', function () {
 //     Mail::raw('Test email working', function ($message) {
 //         $message->to('emmakinyooye@gmail.com')
