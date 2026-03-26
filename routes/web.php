@@ -64,6 +64,7 @@ Route::get('/children/payment/failure/{children}', [ChildrenController::class, '
 
 Route::middleware('guest')->group(function() {
     Route::get('/admin', [AuthController::class, 'showLoginForm'])->name('admin.login');
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.submit');
 });
 

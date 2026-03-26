@@ -3,42 +3,57 @@
 @section('title', 'Users')
 @section('page-title', 'Users Management')
 
-<!-- Users Blade (resources/views/admin/users.blade.php) -->
-@extends('layouts.admin')
-
 @section('content')
-<div class="container mt-4">
 
-    <div class="d-flex justify-content-between mb-3">
-        <h3>Users</h3>
-        <button class="btn btn-primary" id="createUserBtn">+ Create User</button>
-    </div>
+{{-- Search & Filter --}}
+<form method="GET" class="mb-4 d-flex gap-2">
+    <input type="text" id="search" value="{{ request('search') }}" class="form-control" placeholder="Search by name or email">
+    <select id="role" class="form-select">
+        <option value="">All Roles</option>
+        <option value="admin" {{ request('role')=='admin'?'selected':'' }}>Admin</option>
+        <option value="user" {{ request('role')=='user'?'selected':'' }}>User</option>
+    </select>
+    <button type="button" id="filterBtn" class="btn btn-primary"><i class="bi bi-funnel-fill me-1"></i>Filter</button>
+</form>
 
-    <!-- Users Table -->
-    <table class="table table-bordered">
-        <thead class="table-light">
+{{-- Create User Button --}}
+<button class="btn btn-success mb-3"
+        data-bs-toggle="modal"
+        data-bs-target="#createUserModal"
+        id="createUserBtn">
+    <i class="bi bi-plus-circle me-1"></i> Create New User
+</button>
+
+{{-- Users Table --}}
+<div class="table-responsive">
+    <table class="table table-dark table-striped table-hover" id="usersTable">
+        <thead>
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Actions</th>
+                <th><i class="bi bi-person-fill me-1"></i>Name</th>
+                <th><i class="bi bi-envelope me-1"></i>Email</th>
+                <th><i class="bi bi-shield-lock me-1"></i>Role</th>
+                <th><i class="bi bi-calendar2-check me-1"></i>Created At</th>
+                <th><i class="bi bi-gear-fill me-1"></i>Actions</th>
             </tr>
         </thead>
-        <tbody id="usersTable">
+        <tbody id="usersTableBody">
             @foreach($users as $user)
             <tr id="userRow{{ $user->id }}">
-                <td>{{ $loop->iteration }}</td>
+                <td>{{ $loop->iteration + ($users->currentPage()-1)*$users->perPage() }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
-                <td>{{ $user->is_admin ? 'Admin' : 'User' }}</td>
+                <td>
+                    @if($user->role === 'admin')
+                        <span class="badge bg-primary"><i class="bi bi-shield-fill-check me-1"></i>Admin</span>
+                    @else
+                        <span class="badge bg-secondary"><i class="bi bi-person me-1"></i>User</span>
+                    @endif
+                </td>
+                <td>{{ $user->created_at->format('d M, Y') }}</td>
                 <td class="d-flex gap-1">
-                    <button class="btn btn-sm btn-warning editUserBtn" data-id="{{ $user->id }}">
-                        <i class="bi bi-pencil-square me-1"></i>Edit
-                    </button>
-                    <button class="btn btn-sm btn-danger deleteUserBtn" data-id="{{ $user->id }}">
-                        <i class="bi bi-trash-fill me-1"></i>Delete
-                    </button>
+                    <button class="btn btn-sm btn-warning editUserBtn" data-id="{{ $user->id }}"><i class="bi bi-pencil-square me-1"></i>Edit</button>
+                    <button class="btn btn-sm btn-danger deleteUserBtn" data-id="{{ $user->id }}"><i class="bi bi-trash-fill me-1"></i>Delete</button>
                 </td>
             </tr>
             @endforeach
@@ -46,7 +61,10 @@
     </table>
 </div>
 
-<!-- Create User Modal -->
+{{-- Pagination --}}
+{{ $users->links() }}
+
+<!-- Create Modal -->
 <div class="modal fade" id="createUserModal" tabindex="-1">
   <div class="modal-dialog">
     <form id="createUserForm">
@@ -56,15 +74,14 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-            <div id="createErrors" class="alert alert-danger d-none"></div>
-            <input type="text" name="name" placeholder="Name" class="form-control mb-2" required>
-            <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
-            <input type="password" name="password" placeholder="Password" class="form-control mb-2" required>
-            <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control mb-2" required>
-            <select name="is_admin" class="form-select">
-                <option value="0">User</option>
-                <option value="1">Admin</option>
-            </select>
+          <input type="text" name="name" placeholder="Name" class="form-control mb-2" required>
+          <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
+          <input type="password" name="password" placeholder="Password" class="form-control mb-2" required>
+          <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control mb-2" required>
+          <select name="is_admin" class="form-select">
+            <option value="admin">Admin</option>      
+             <option value="user">User</option>                  
+          </select>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" type="submit">Create</button>
@@ -74,7 +91,7 @@
   </div>
 </div>
 
-<!-- Edit User Modal -->
+<!-- Edit Modal -->
 <div class="modal fade" id="editUserModal" tabindex="-1">
   <div class="modal-dialog">
     <form id="editUserForm">
@@ -85,19 +102,18 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-            <div id="editErrors" class="alert alert-danger d-none"></div>
-            <input type="text" name="name" id="editName" class="form-control mb-2" required>
-            <input type="email" name="email" id="editEmail" class="form-control mb-2" required>
-            <input type="password" name="password" placeholder="Leave blank to keep current" class="form-control mb-2">
-            <input type="password" name="password_confirmation" placeholder="Confirm password" class="form-control mb-2">
-            <select name="is_admin" id="editIsAdmin" class="form-select">
-                <option value="0">User</option>
-                <option value="1">Admin</option>
-            </select>
+          <input type="text" name="name" id="editName" class="form-control mb-2" required>
+          <input type="email" name="email" id="editEmail" class="form-control mb-2" required>
+          <input type="password" name="password" placeholder="Leave blank to keep current" class="form-control mb-2">
+          <input type="password" name="password_confirmation" placeholder="Confirm password" class="form-control mb-2">
+          <select name="is_admin" id="editIsAdmin" class="form-select">
+            <option value="admin">Admin</option>      
+             <option value="user">User</option>
+          </select>
         </div>
         <div class="modal-footer">
           <button class="btn btn-primary" type="submit">Update</button>
-        </div>
+        </div>s
       </div>
     </form>
   </div>
@@ -105,15 +121,25 @@
 
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script>
 $(document).ready(function(){
+
+    // ===== Setup CSRF token for all AJAX requests =====
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    // ===== Bootstrap 5 modal instances =====
+    var createModal = new bootstrap.Modal(document.getElementById('createUserModal'));
+    var editModal = new bootstrap.Modal(document.getElementById('editUserModal'));
 
     // ===== Open Create Modal =====
     $('#createUserBtn').click(function(){
         $('#createUserForm')[0].reset();
         $('#createErrors').addClass('d-none').html('');
-        var createModal = new bootstrap.Modal(document.getElementById('createUserModal'));
         createModal.show();
     });
 
@@ -126,35 +152,49 @@ $(document).ready(function(){
             $('#editUserId').val(data.id);
             $('#editName').val(data.name);
             $('#editEmail').val(data.email);
-            $('#editIsAdmin').val(data.is_admin ? 1 : 0);
-
-            var editModal = new bootstrap.Modal(document.getElementById('editUserModal'));
+            $('#editIsAdmin').val(data.role ? 'admin' : 'user');
             editModal.show();
         });
     });
 
-    // ===== Create User =====
     $('#createUserForm').submit(function(e){
         e.preventDefault();
         $.ajax({
             url: `/admin/users`,
             method: 'POST',
-            data: $(this).serialize(),
+            data: $(this).serialize(), // make sure _token is included
             success: function(res){
-                $('#createUserModal').modal('hide');
+                createModal.hide();
+
+                // Format date
+                let date = new Date(res.user.created_at);
+                let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+
                 // Add new row dynamically
                 let user = res.user;
+                let serial = $('#usersTableBody tr').length + 1;
+                let roleHtml = '';
+                if(user.role === 'admin'){
+                    roleHtml = `<span class="badge bg-primary"><i class="bi bi-shield-fill-check me-1"></i>Admin</span>`;
+                } else {
+                    roleHtml = `<span class="badge bg-secondary"><i class="bi bi-person me-1"></i>User</span>`;
+                }
                 let row = `<tr id="userRow${user.id}">
-                    <td>#</td>
+                    <td>${serial}</td>
                     <td>${user.name}</td>
                     <td>${user.email}</td>
-                    <td>${user.is_admin ? 'Admin' : 'User'}</td>
+                    <td>${roleHtml}</td>
+                    <td>${formattedDate}</td>
                     <td class="d-flex gap-1">
-                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}"><i class="bi bi-pencil-square me-1"></i>Edit</button>
-                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}"><i class="bi bi-trash-fill me-1"></i>Delete</button>
+                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}">
+                            <i class="bi bi-pencil-square me-1"></i>Edit
+                        </button>
+                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}">
+                            <i class="bi bi-trash-fill me-1"></i>Delete
+                        </button>
                     </td>
                 </tr>`;
-                $('#usersTable').append(row);
+                $('#usersTableBody').append(row);
             },
             error: function(err){
                 let html = '';
@@ -167,8 +207,7 @@ $(document).ready(function(){
             }
         });
     });
-
-    // ===== Edit User =====
+    // ===== Edit User via AJAX =====
     $('#editUserForm').submit(function(e){
         e.preventDefault();
         let id = $('#editUserId').val();
@@ -178,17 +217,28 @@ $(document).ready(function(){
             method: 'PUT',
             data: $(this).serialize(),
             success: function(res){
-                $('#editUserModal').modal('hide');
-                // Update table row dynamically
+                editModal.hide();
+                let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
                 let user = res.user;
-                let row = `
-                    <td>#</td>
+                let serial = $('#usersTableBody tr').length + 1;
+                let roleHtml = '';
+                if(user.role === 'admin'){
+                    roleHtml = `<span class="badge bg-primary"><i class="bi bi-shield-fill-check me-1"></i>Admin</span>`;
+                } else {
+                    roleHtml = `<span class="badge bg-secondary"><i class="bi bi-person me-1"></i>User</span>`;
+                }
+                let row = `<td>${serial}</td>
                     <td>${user.name}</td>
                     <td>${user.email}</td>
-                    <td>${user.is_admin ? 'Admin' : 'User'}</td>
+                    <td>${roleHtml}</td>
+                    <td>${formattedDate}</td>
                     <td class="d-flex gap-1">
-                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}"><i class="bi bi-pencil-square me-1"></i>Edit</button>
-                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}"><i class="bi bi-trash-fill me-1"></i>Delete</button>
+                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}">
+                            <i class="bi bi-pencil-square me-1"></i>Edit
+                        </button>
+                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}">
+                            <i class="bi bi-trash-fill me-1"></i>Delete
+                        </button>
                     </td>`;
                 $(`#userRow${user.id}`).html(row);
             },
@@ -204,16 +254,18 @@ $(document).ready(function(){
         });
     });
 
-    // ===== Delete User =====
+    // ===== Delete User via AJAX =====
     $(document).on('click', '.deleteUserBtn', function(){
-        if(confirm('Are you sure?')){
+        if(confirm('Are you sure you want to delete this user?')){
             let id = $(this).data('id');
             $.ajax({
                 url: `/admin/users/${id}`,
                 method: 'DELETE',
-                data: {_token:'{{ csrf_token() }}'},
                 success:function(){
                     $(`#userRow${id}`).remove();
+                },
+                error: function(err){
+                    alert('Delete failed!');
                 }
             });
         }
@@ -221,4 +273,4 @@ $(document).ready(function(){
 
 });
 </script>
-@endsection
+@endpush

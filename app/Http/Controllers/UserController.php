@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -22,10 +26,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        Log::info('Create User Payload:', $request->all());
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'is_admin' => 'required|in:admin,user', 
         ]);
 
         if ($validator->fails()) {
@@ -35,11 +41,13 @@ class UserController extends Controller
             ], 422);
         }
 
+        $role = $request->is_admin === 'admin' ? 'admin' : 'user';
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'is_admin' => $request->is_admin ?? 0,
+            'role' => $role,
         ]);
 
         return response()->json([
@@ -71,7 +79,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->is_admin = $request->is_admin ?? 0;
+        $user->role = $request->is_admin === 'admin' ? 'admin' : 'user'; // explicitly set role
 
         if ($request->password) {
             $user->password = Hash::make($request->password);
@@ -89,6 +97,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return back()->with('success','User deleted successfully!');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User deleted successfully'
+        ]);
     }
 }
