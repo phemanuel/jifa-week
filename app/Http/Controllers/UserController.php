@@ -59,9 +59,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('admin.users_edit', compact('user'));
+        return response()->json($user);
     }
-
+    
     public function update(Request $request, User $user)
     {
         $validator = Validator::make($request->all(), [

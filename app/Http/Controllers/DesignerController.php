@@ -52,16 +52,17 @@ class DesignerController extends Controller
 
         $receiptNumber = $reference;       
 
-        // $pdf = Pdf::loadView('pdf.designer-receipt', [
-        //         'designer' => $designer
-        //     ]);
-        // $pdfPath = public_path('receipts/'.$receiptNumber.'.pdf');
+        $pdf = Pdf::loadView('pdf.designer-receipt', [
+                'designer' => $designer
+            ]);
+        $pdfPath = public_path('receipts/'.$receiptNumber.'.pdf');
 
-        // $pdf->save($pdfPath);
+        $pdf->save($pdfPath);
 
-        // Mail::to($designer->email)->send(new DesignerPaymentSuccess($designer));
+        Mail::to($designer->email)->send(new DesignerPaymentSuccess($designer));
 
-        return redirect()->route('designer-payment', $designer->id);
+        return redirect()->route('designer.success', $designer->id);
+        // return redirect()->route('designer-payment', $designer->id);
     }
     
     // Show payment page

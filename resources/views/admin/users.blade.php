@@ -26,6 +26,7 @@
 
 {{-- Users Table --}}
 <div class="table-responsive">
+    <div id="successMessage" class="alert alert-success d-none"></div>
     <table class="table table-dark table-striped table-hover" id="usersTable">
         <thead>
             <tr>
@@ -74,10 +75,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
+            <label for="">Name</label>
           <input type="text" name="name" placeholder="Name" class="form-control mb-2" required>
+          <label for="">Email address</label>
           <input type="email" name="email" placeholder="Email" class="form-control mb-2" required>
+          <label for="">Password</label>
           <input type="password" name="password" placeholder="Password" class="form-control mb-2" required>
+          <label for="">Confirm Password</label>
           <input type="password" name="password_confirmation" placeholder="Confirm Password" class="form-control mb-2" required>
+          <label for="">User Role</label>
           <select name="is_admin" class="form-select">
             <option value="admin">Admin</option>      
              <option value="user">User</option>                  
@@ -102,10 +108,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
+            <label for="">Name</label>
           <input type="text" name="name" id="editName" class="form-control mb-2" required>
+          <label for="">Email address</label>
           <input type="email" name="email" id="editEmail" class="form-control mb-2" required>
+          <label for="">Password</label>
           <input type="password" name="password" placeholder="Leave blank to keep current" class="form-control mb-2">
+          <label for="">Confirm Password</label>
           <input type="password" name="password_confirmation" placeholder="Confirm password" class="form-control mb-2">
+          <label for="">User Role</label>
           <select name="is_admin" id="editIsAdmin" class="form-select">
             <option value="admin">Admin</option>      
              <option value="user">User</option>
@@ -152,7 +163,10 @@ $(document).ready(function(){
             $('#editUserId').val(data.id);
             $('#editName').val(data.name);
             $('#editEmail').val(data.email);
-            $('#editIsAdmin').val(data.role ? 'admin' : 'user');
+
+            // ✅ FIX IS HERE
+            $('#editIsAdmin').val(data.role);
+
             editModal.show();
         });
     });
@@ -166,19 +180,31 @@ $(document).ready(function(){
             success: function(res){
                 createModal.hide();
 
+                // ✅ Show success message
+                $('#successMessage')
+                    .removeClass('d-none')
+                    .html('User created successfully!')
+                    .fadeIn();
+
+                setTimeout(() => {
+                    $('#successMessage').fadeOut();
+                }, 3000);
+
                 // Format date
                 let date = new Date(res.user.created_at);
-                let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+                let formattedDate = date.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                });
 
-                // Add new row dynamically
                 let user = res.user;
                 let serial = $('#usersTableBody tr').length + 1;
-                let roleHtml = '';
-                if(user.role === 'admin'){
-                    roleHtml = `<span class="badge bg-primary"><i class="bi bi-shield-fill-check me-1"></i>Admin</span>`;
-                } else {
-                    roleHtml = `<span class="badge bg-secondary"><i class="bi bi-person me-1"></i>User</span>`;
-                }
+
+                let roleHtml = user.role === 'admin'
+                    ? `<span class="badge bg-primary">Admin</span>`
+                    : `<span class="badge bg-secondary">User</span>`;
+
                 let row = `<tr id="userRow${user.id}">
                     <td>${serial}</td>
                     <td>${user.name}</td>
@@ -186,14 +212,11 @@ $(document).ready(function(){
                     <td>${roleHtml}</td>
                     <td>${formattedDate}</td>
                     <td class="d-flex gap-1">
-                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}">
-                            <i class="bi bi-pencil-square me-1"></i>Edit
-                        </button>
-                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}">
-                            <i class="bi bi-trash-fill me-1"></i>Delete
-                        </button>
+                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}">Edit</button>
+                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}">Delete</button>
                     </td>
                 </tr>`;
+
                 $('#usersTableBody').append(row);
             },
             error: function(err){
@@ -218,28 +241,42 @@ $(document).ready(function(){
             data: $(this).serialize(),
             success: function(res){
                 editModal.hide();
-                let formattedDate = date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+
+                // ✅ Show success message
+                $('#successMessage')
+                    .removeClass('d-none')
+                    .html('User updated successfully!')
+                    .fadeIn();
+
+                setTimeout(() => {
+                    $('#successMessage').fadeOut();
+                }, 3000);
+
                 let user = res.user;
-                let serial = $('#usersTableBody tr').length + 1;
-                let roleHtml = '';
-                if(user.role === 'admin'){
-                    roleHtml = `<span class="badge bg-primary"><i class="bi bi-shield-fill-check me-1"></i>Admin</span>`;
-                } else {
-                    roleHtml = `<span class="badge bg-secondary"><i class="bi bi-person me-1"></i>User</span>`;
-                }
-                let row = `<td>${serial}</td>
+
+                // ✅ FIXED date bug
+                let date = new Date(user.created_at);
+                let formattedDate = date.toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                });
+
+                let roleHtml = user.role === 'admin'
+                    ? `<span class="badge bg-primary">Admin</span>`
+                    : `<span class="badge bg-secondary">User</span>`;
+
+                let row = `
+                    <td>${$('#userRow'+user.id).index()+1}</td>
                     <td>${user.name}</td>
                     <td>${user.email}</td>
                     <td>${roleHtml}</td>
                     <td>${formattedDate}</td>
                     <td class="d-flex gap-1">
-                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}">
-                            <i class="bi bi-pencil-square me-1"></i>Edit
-                        </button>
-                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}">
-                            <i class="bi bi-trash-fill me-1"></i>Delete
-                        </button>
+                        <button class="btn btn-sm btn-warning editUserBtn" data-id="${user.id}">Edit</button>
+                        <button class="btn btn-sm btn-danger deleteUserBtn" data-id="${user.id}">Delete</button>
                     </td>`;
+
                 $(`#userRow${user.id}`).html(row);
             },
             error: function(err){

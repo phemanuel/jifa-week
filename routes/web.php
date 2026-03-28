@@ -73,6 +73,7 @@ Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.log
 
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function() {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/home', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     // Users
     Route::get('users', [UserController::class,'index'])->name('admin.users');
     Route::get('users/create', [UserController::class,'create'])->name('admin.users.create');
@@ -84,8 +85,14 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function() {
     Route::get('/designers', [AdminController::class, 'designers'])->name('admin.designers');
     Route::get('/childrens', [AdminController::class, 'childrens'])->name('admin.childrens');
 
-    Route::post('/resend-email/{type}/{id}', [AdminController::class, 'resendEmail'])->name('admin.resendEmail');
-    Route::get('/payment-query/{type}/{id}', [AdminController::class, 'queryPayment'])->name('admin.queryPayment');
+   Route::post('/designers/query-payment', [AdminController::class, 'queryPayment'])
+   ->name('admin.designer.queryPayment');
+   Route::post('/children/query-payment', [AdminController::class, 'queryPaymentChild'])
+   ->name('admin.child.queryPayment');
+   Route::post('/designers/resend-email', [AdminController::class, 'resendEmail'])
+   ->name('admin.designer.resendEmail');
+   Route::post('children/resend-email', [AdminController::class, 'resendEmailChild'])
+   ->name('admin.child.resendEmail');
 });
 // Route::get('/test-mail', function () {
 //     Mail::raw('Test email working', function ($message) {
