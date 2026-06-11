@@ -85,6 +85,11 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function() {
     Route::get('/designers', [AdminController::class, 'designers'])->name('admin.designers');
     Route::get('/childrens', [AdminController::class, 'childrens'])->name('admin.childrens');
 
+    Route::get('/children/export', [ChildrenController::class, 'export'])
+    ->name('children.export');
+    Route::get('/designer/export', [DesignerController::class, 'export'])
+    ->name('designer.export');
+
    Route::post('/designers/query-payment', [AdminController::class, 'queryPayment'])
    ->name('admin.designer.queryPayment');
    Route::post('/children/query-payment', [AdminController::class, 'queryPaymentChild'])

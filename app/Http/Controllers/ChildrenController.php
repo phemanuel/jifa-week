@@ -170,4 +170,101 @@ class ChildrenController extends Controller
     {
         return view('children.failure', compact('children'));
     }
+
+    public function export()
+    {
+        $children = Children::all();
+
+        $fileName = 'children_registration_' . date('Y-m-d_H-i-s') . '.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"$fileName\"",
+        ];
+
+        $callback = function () use ($children) {
+
+            $file = fopen('php://output', 'w');
+
+            // CSV Headers
+            fputcsv($file, [
+                'Full Name',
+                'Gender',
+                'Date Of Birth',
+                'Age',
+                'Nationality',
+                'State Of Origin',
+                'Home Address',
+                'School Name',
+                'Social Media',
+                'Height',
+                'Weight',
+                'Chest',
+                'Waist',
+                'Shoe Size',
+                'Parent Name',
+                'Relationship',
+                'Phone',
+                'Email',
+                'Parent Social Media',
+                'Residential Address',
+                'Parent ID Type',
+                'Parent Occupation',
+                'Has Modeled Before',
+                'Previous Experience',
+                'Special Talents',
+                'Talent Social Media',
+                'Has Medical Condition',
+                'Medical Condition',
+                'Fee',
+                'Paid',
+                'Payment Status',
+                'Payment Reference',
+                'Created At'
+            ]);
+
+            foreach ($children as $child) {
+
+                fputcsv($file, [
+                    $child->full_name,
+                    $child->gender,
+                    $child->dob,
+                    $child->age,
+                    $child->nationality,
+                    $child->state_of_origin,
+                    $child->home_address,
+                    $child->school_name,
+                    $child->social_media,
+                    $child->height,
+                    $child->weight,
+                    $child->chest,
+                    $child->waist,
+                    $child->shoe_size,
+                    $child->parent_name,
+                    $child->relationship,
+                    $child->phone,
+                    $child->email,
+                    $child->parent_social_media,
+                    $child->residential_address,
+                    $child->parent_id_type,
+                    $child->parent_occupation,
+                    $child->has_modeled_before,
+                    $child->previous_experience,
+                    $child->special_talents,
+                    $child->talent_social_media,
+                    $child->has_medical_condition,
+                    $child->medical_condition,
+                    $child->fee,
+                    $child->paid ? 'Yes' : 'No',
+                    $child->payment_status,
+                    $child->payment_reference,
+                    $child->created_at
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
 }

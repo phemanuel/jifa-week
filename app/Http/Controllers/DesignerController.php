@@ -154,4 +154,70 @@ class DesignerController extends Controller
     {
         return view('designer.failure', compact('designer'));
     }
+    public function export()
+    {
+        $designers = Designer::all();
+
+        $fileName = 'designers_' . date('Y-m-d_H-i-s') . '.csv';
+
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"$fileName\"",
+        ];
+
+        $callback = function () use ($designers) {
+
+            $file = fopen('php://output', 'w');
+
+            // CSV Headers
+            fputcsv($file, [
+                'Brand Name',
+                'Designer Name',
+                'Year Established',
+                'Instagram',
+                'Other Socials',
+                'Website',
+                'Phone',
+                'Email',
+                'Business Address',
+                'Category',
+                'Number of Pieces',
+                'Collection Title',
+                'Description',
+                'Fee',
+                'Payment Reference',
+                'Payment Status',
+                'Paid',
+                'Created At'
+            ]);
+
+            foreach ($designers as $designer) {
+
+                fputcsv($file, [
+                    $designer->brand_name,
+                    $designer->designer_name,
+                    $designer->year_established,
+                    $designer->instagram,
+                    $designer->other_socials,
+                    $designer->website,
+                    $designer->phone,
+                    $designer->email,
+                    $designer->business_address,
+                    $designer->category,
+                    $designer->pieces,
+                    $designer->collection_title,
+                    $designer->description,
+                    $designer->fee,
+                    $designer->payment_reference,
+                    $designer->payment_status,
+                    $designer->paid ? 'Yes' : 'No',
+                    $designer->created_at,
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
 }

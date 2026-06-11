@@ -18,6 +18,11 @@
 <div class="table-responsive">
     <div id="successMessage" class="alert alert-success d-none"></div>
 <div id="errorMessage" class="alert alert-danger d-none"></div>
+        <div class="mb-3 text-end">
+            <a href="{{ route('designer.export') }}" class="btn btn-success">
+                <i class="bi bi-file-earmark-excel"></i> Export All Records
+            </a>
+        </div>
     <table class="table table-dark table-striped table-hover">
         <thead>
             <tr>
